@@ -1,30 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
+## Notes
 ```bash
-npm run dev
-# or
-yarn dev
+$ npx create-next-app digital-garden --use-npm
+$ touch tsconfig.json
+$ npm install --save-dev typescript @types/react @types/node
+$ npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Personal Commit Style Guide
+(New feature)
+```
+📝⭐ New Blog Post / Page!
+💕⭐⭐ Major feature
+💕⭐ Minor Feature
+🌷⭐ Stylistic change (css)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+❗❗(api-breaking / change-behavior)
+ - Rename public functions
+ - Change parameters of class constructors, methods functions
+ - Change return type of existing functions
+ - Change functionality of existing function
+ - Remove existing properties of objects
+```
 
-## Learn More
+(No functionality change)
+```
+🎨⭐⭐ (Major Refactor)
+🎨⭐ (Minor Refactor)
+- No functionality change
+- Remove unused code
+- Rename private variables, private functions and methods
+- Move functions to own module
+- Rearrange relative positions of functions or blocks of code within the same file
+- Extract method move some code from a large function to a helper function
+- Reduce cognitive complexity of blocks of codes
+- Reimplement the same thing, but function is now is more readable (not necessarily faster)
+- Remove duplication, be DRY
 
-To learn more about Next.js, take a look at the following resources:
+💅🏼 (style/formatting)
+- Improve formatting (run prettier, Add line spaces)
+- Adding comments for readability
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🏇 (Optimize)
+- Remove redundancy or unnecessary calculations
+- Apply modifications that improve speed of the app
+```
+(No production code change)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+🧹 (chore)
+  - Update package manager configs
+📚 (doc)
+  - Update documentation
+✅ (test)
+  - Tests, refactored tests
+🐞🐛 (fix)
+  - Fix something that is not working as expected
+```
