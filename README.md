@@ -6,10 +6,11 @@ $ npm install --save-dev typescript @types/react @types/node
 $ npm run dev
 ```
 
-# Personal Commit Style Guide
+## Personal Commit Style Guide
+
 (New feature)
 ```
-📝⭐ New Blog Post / Page!
+📝⭐ New Blog Post / Page!, or update text content of page
 💕⭐⭐ Major feature
 💕⭐ Minor Feature
 🌷⭐ Stylistic change (css)
@@ -26,8 +27,6 @@ $ npm run dev
 ```
 🎨⭐⭐ (Major Refactor)
 🎨⭐ (Minor Refactor)
-- No functionality change
-- Remove unused code
 - Rename private variables, private functions and methods
 - Move functions to own module
 - Rearrange relative positions of functions or blocks of code within the same file
@@ -35,6 +34,8 @@ $ npm run dev
 - Reduce cognitive complexity of blocks of codes
 - Reimplement the same thing, but function is now is more readable (not necessarily faster)
 - Remove duplication, be DRY
+
+🔥 Remove unused code
 
 💅🏼 (style/formatting)
 - Improve formatting (run prettier, Add line spaces)
@@ -57,3 +58,20 @@ $ npm run dev
 🐞🐛 (fix)
   - Fix something that is not working as expected
 ```
+
+## References
+
+Layout inspirations
+- https://joelhooks.com/
+- https://overreacted.io/
+- https://nextjs-mdx-blog-kit.com/
+
+Walkthroughs
+- https://github.com/joelhooks/next-typescript-tailwind-mdx-starter
+- https://medium.com/young-developer/react-markdown-code-and-syntax-highlighting-632d2f9b4ada
+- https://github.com/vercel/next.js/tree/master/packages/next-mdx
+- https://magrippis.com/blog/2020/how-to-setup-MDX-in-Nextjs
+- https://mdxjs.com/advanced/typescript
+- https://github.com/Jashnm/mdx-blog-nextjs
+- https://dev.to/jashnm/making-mdx-blog-with-next-js-part-1-1c0j
+- https://github.com/lorenseanstewart/nextjs-mdx-blog-kit
