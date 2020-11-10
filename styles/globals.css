@@ -5,12 +5,15 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-size: 1.1rem;
-  font-family: 'Montserrat', 'mulish', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'Montserrat', 'Mulish', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+p {
+  font-size: 1.1rem;
   letter-spacing: 0.5px;
   word-spacing: 2px;
-  line-height: 2;
+  line-height: 1.75;
 }
 
 a {
@@ -32,4 +35,13 @@ h1 {
 
 * {
   box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    }
 }
