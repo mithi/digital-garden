@@ -26,6 +26,14 @@
     align-items: center;
 }
 
+.header {
+    width: 100%;
+    height: 100px;
+    font-family: "Permanent Marker";
+    font-size: 1.75rem;
+    padding: 10px;
+}
+
 @media (max-width: 600px) {
     .main {
         width: 100%;
