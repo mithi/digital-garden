@@ -1,14 +1,33 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Permanent+Marker&display=swap&family=Montserrat:wght@400&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-size: 1.1rem;
+  font-family: 'Montserrat', 'mulish', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  letter-spacing: 0.5px;
+  word-spacing: 2px;
+  line-height: 2;
 }
 
 a {
-  color: inherit;
+  color: #e84393;
   text-decoration: none;
+
+}
+
+a:hover {
+  color: #00b894;
+}
+
+h1 {
+  font-family: 'Permanent Marker';
+  font-size: 3rem;
+  letter-spacing: 3px;
+  word-spacing: 4px;
 }
 
 * {
