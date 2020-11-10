@@ -1,6 +1,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Permanent+Marker&display=swap&family=Montserrat:wght@400&display=swap');
 
+:root {
+  --c0-primary: #e84393;
+  --c1-secondary: #00b894;;
+
+}
 html,
 body {
   padding: 0;
@@ -17,13 +22,13 @@ p {
 }
 
 a {
-  color: #e84393;
+  color: var(--c0-primary);
   text-decoration: none;
 
 }
 
 a:hover {
-  color: #00b894;
+  color:var(--c1-secondary);
 }
 
 h1 {
@@ -44,4 +49,14 @@ h1 {
     letter-spacing: 1px;
     word-spacing: 2px;
     }
+}
+
+::-moz-selection {
+  background-color: var(--c0-primary);
+  color: #fff;
+}
+
+::selection {
+  background-color: var(--c0-primary);
+  color: #fff;
 }
