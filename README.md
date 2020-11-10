@@ -1,9 +1,18 @@
+# 🌱 Mithi's Digital Garden 🌷
+> This is a place where I drop notes about things on my mind. The entries here are mostly
+incomplete thoughts; they probably won't useful for anyone else but me. Sorry you've stumbled
+upon this, but there is really nothing really to see here.
+
 ## Notes
 ```bash
 $ npx create-next-app digital-garden --use-npm
 $ touch tsconfig.json
 $ npm install --save-dev typescript @types/react @types/node
 $ npm run dev
+```
+I might need this later.
+```
+"@types/webpack-env": "^1.15.3",
 ```
 
 ## Personal Commit Style Guide
