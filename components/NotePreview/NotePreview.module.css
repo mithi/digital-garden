@@ -3,23 +3,63 @@
     padding: 8px;
     font-size: 0.75rem;
     text-transform: uppercase;
-    border-color: var(--c0-primary);
-    color: var(--c0-primary);
     border-radius: 10px;
     border-width: 1px;
-    border-color: var(--c0-primary);
-    border-style: dashed;
     margin: 5px;
     opacity: 0.5;
+    border-style: dashed;
+    border-color: var(--c0-primary);
+    color: var(--c0-primary);
 }
 
-.tag:hover {
+.tag:hover,
+.highlightTag:hover {
     background-color: var(--c1-secondary);
     border-width: 1px;
     border-color: var(--c1-secondary);
     color: white;
 }
 
+.highlightTag {
+    list-style-type: none;
+    padding: 8px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border-width: 1px;
+    margin: 5px;
+    opacity: 0.4;
+    border-style: dashed;
+    border-color: var(--c0-primary);
+    background-color: var(--c0-primary);
+    color: white;
+}
+
 .tagContainer {
     display: flex;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+.previewContainer {
+    text-align: left;
+    border-width: 1px;
+    margin: 20px;
+    width: 100%;
+}
+
+.title {
+    font-family: "Permanent Marker";
+    font-size: 2rem;
+    letter-spacing: 2px;
+    word-spacing: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+.description {
+    margin: 10px;
+    line-height: 1;
+    padding: 0;
 }
