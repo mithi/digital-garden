@@ -13,4 +13,11 @@ const getAllNotesData = () => {
     }))
 }
 
-export { getAllNotesData }
+const getAllTags = () => {
+    const allNotes = getAllNotesData()
+    const allTagsDuplicated = allNotes.map(note => note.meta.tags).flat()
+    const tags = Array.from(new Set(allTagsDuplicated))
+    return tags
+}
+
+export { getAllNotesData, getAllTags }

@@ -1,4 +1,4 @@
-import { getAllNotesData } from "../../utils/utils"
+import { getAllNotesData, getAllTags } from "../../utils/utils"
 import NotePreview from "../../components/NotePreview"
 
 const Home = ({ notes, id }) => (
@@ -19,12 +19,8 @@ paths = [
 ]
 */
 export async function getStaticPaths() {
-    const allNotes = getAllNotesData()
-    const allTagsDuplicated = allNotes.map(note => note.meta.tags).flat()
-    const tags = Array.from(new Set(allTagsDuplicated))
-    console.log("tags:", tags)
     return {
-        paths: tags.map(tag => ({ params: { id: tag } })),
+        paths: getAllTags().map(tag => ({ params: { id: tag } })),
         fallback: false,
     }
 }
