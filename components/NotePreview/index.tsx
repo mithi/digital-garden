@@ -1,4 +1,5 @@
 import Link from "next/link"
+import styles from "./NotePreview.module.css"
 
 const NoteTitle = ({ id, title }) => (
     <Link href={`/notes${id}`}>
@@ -10,8 +11,16 @@ const NoteTitle = ({ id, title }) => (
 
 type TagType = { tags: string[]; id: string }
 const Tags = ({ tags, id }: TagType) => {
-    const list = tags.map(tag => <li key={tag + id}>{tag}</li>)
-    return <ul>{list}</ul>
+    const list = tags.map(tag => (
+        <Link href={`/tags/${tag}`}>
+            <a>
+                <li className={styles.tag} key={tag + id}>
+                    {tag}
+                </li>
+            </a>
+        </Link>
+    ))
+    return <ul className={styles.tagContainer}>{list}</ul>
 }
 
 const NotePreview = ({ note }) => (

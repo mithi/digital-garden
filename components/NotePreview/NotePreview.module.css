@@ -1,0 +1,25 @@
+.tag {
+    list-style-type: none;
+    padding: 8px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    border-color: var(--c0-primary);
+    color: var(--c0-primary);
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: var(--c0-primary);
+    border-style: dashed;
+    margin: 5px;
+    opacity: 0.5;
+}
+
+.tag:hover {
+    background-color: var(--c1-secondary);
+    border-width: 1px;
+    border-color: var(--c1-secondary);
+    color: white;
+}
+
+.tagContainer {
+    display: flex;
+}
