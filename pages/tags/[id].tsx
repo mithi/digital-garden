@@ -1,11 +1,12 @@
 import { getAllNotesData, getAllTags } from "../../utils/utils"
 import NotePreview from "../../components/NotePreview"
-
+import Tags from "."
 const Home = ({ notes, id }) => (
     <>
         {notes.map(note => (
             <NotePreview {...{ note, highlightTag: id }} key={note.id} />
         ))}
+        <Tags />
     </>
 )
 
