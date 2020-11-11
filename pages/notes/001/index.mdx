@@ -1,5 +1,9 @@
-export default ({ children }) => <article>{children}</article>;
+export const meta = {
+    title: "Hello World",
+    description: "This is my first note",
+    tags: ["hello", "world"],
+}
 
-# Hello World!
+export default ({ children }) => <article>{children}</article>
 
-This is my first note
+This is the content of my first note. <3
