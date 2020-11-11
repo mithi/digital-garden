@@ -20,6 +20,7 @@
 .footer {
     width: 70%;
     height: 100px;
+    font-size: 20px;
     border-top: 1px solid #eaeaea;
     display: flex;
     justify-content: center;

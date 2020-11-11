@@ -22,10 +22,12 @@ p {
 a {
     color: var(--c0-primary);
     text-decoration: none;
+    font-weight: bolder;
 }
 
 a:hover {
     color: var(--c1-secondary);
+    font-weight: bolder;
 }
 
 h1 {
