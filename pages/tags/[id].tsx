@@ -3,9 +3,8 @@ import NotePreview from "../../components/NotePreview"
 
 const Home = ({ notes, id }) => (
     <>
-        <h1>Displaying notes with tag: {id}</h1>
         {notes.map(note => (
-            <NotePreview {...{ note }} key={note.id} />
+            <NotePreview {...{ note, highlightTag: id }} key={note.id} />
         ))}
     </>
 )

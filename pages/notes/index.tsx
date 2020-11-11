@@ -8,7 +8,7 @@ export async function getStaticProps() {
 const Home = ({ notes }) => (
     <>
         {notes.map(note => (
-            <NotePreview {...{ note }} key={note.id} />
+            <NotePreview {...{ note, highlightTag: null }} key={note.id} />
         ))}
     </>
 )
