@@ -19,14 +19,18 @@ const Tags = ({ tags, id }: TagType) => {
     return <ul>{list}</ul>
 }
 
+const NotePreview = ({ note }) => (
+    <>
+        <NoteTitle {...{ id: note.id, title: note.meta.title }} />
+        <p>{note.meta.description}</p>
+        <Tags {...{ tags: note.meta.tags, id: note.id }} />
+    </>
+)
+
 const Home = ({ allNotesData }) => (
     <>
         {allNotesData.map(note => (
-            <div key={note.id}>
-                <NoteTitle {...{ id: note.id, title: note.meta.title }} />
-                <p>{note.meta.description}</p>
-                <Tags {...{ tags: note.meta.tags, id: note.id }} />
-            </div>
+            <NotePreview {...{ note }} key={note.id} />
         ))}
     </>
 )
