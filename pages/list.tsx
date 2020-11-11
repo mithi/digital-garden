@@ -5,7 +5,7 @@ export async function getStaticProps() {
     return { props: { allNotesData: getAllNotesData() } }
 }
 
-const NotePreview = ({ id, title }) => (
+const NoteTitle = ({ id, title }) => (
     <Link href={`/notes${id}`}>
         <a>
             <h1>🌱{title}🌷</h1>
@@ -23,7 +23,7 @@ const Home = ({ allNotesData }) => (
     <>
         {allNotesData.map(note => (
             <div key={note.id}>
-                <NotePreview {...{ id: note.id, title: note.meta.title }} />
+                <NoteTitle {...{ id: note.id, title: note.meta.title }} />
                 <p>{note.meta.description}</p>
                 <Tags {...{ tags: note.meta.tags, id: note.id }} />
             </div>
