@@ -2,12 +2,12 @@ import { getAllNotesData } from "../utils/utils"
 import NotePreview from "../components/NotePreview"
 
 export async function getStaticProps() {
-    return { props: { allNotesData: getAllNotesData() } }
+    return { props: { notes: getAllNotesData() } }
 }
 
-const Home = ({ allNotesData }) => (
+const Home = ({ notes }) => (
     <>
-        {allNotesData.map(note => (
+        {notes.map(note => (
             <NotePreview {...{ note }} key={note.id} />
         ))}
     </>
