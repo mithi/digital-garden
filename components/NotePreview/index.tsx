@@ -10,7 +10,7 @@ const NoteTitle = ({ id, title }) => (
 )
 
 type TagType = { tags: string[]; id: string; highlightTag: string | null | undefined }
-const Tags = ({ tags, id, highlightTag }: TagType) => {
+export const Tags = ({ tags, id, highlightTag }: TagType) => {
     const list = tags.map(tag => (
         <Link href={`/tags/${tag}`}>
             <a>

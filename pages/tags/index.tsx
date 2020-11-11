@@ -1,16 +1,6 @@
 import { getAllTags } from "../../utils/utils"
-import Link from "next/link"
+import { Tags } from "../../components/NotePreview"
 
-const Home = () => (
-    <ul>
-        {getAllTags().map(tag => (
-            <Link href={`/tags/${tag}`} key={tag}>
-                <a>
-                    <li>{tag}</li>
-                </a>
-            </Link>
-        ))}
-    </ul>
-)
+const Home = () => <Tags tags={getAllTags()} highlightTag={null} id="all-tags" />
 
 export default Home
