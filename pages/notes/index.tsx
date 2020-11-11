@@ -1,5 +1,5 @@
-import { getAllNotesData } from "../utils/utils"
-import NotePreview from "../components/NotePreview"
+import { getAllNotesData } from "../../utils/utils"
+import NotePreview from "../../components/NotePreview"
 
 export async function getStaticProps() {
     return { props: { notes: getAllNotesData() } }
