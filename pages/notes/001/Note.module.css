@@ -1,0 +1,23 @@
+.normalStyle {
+    font-family: "monaco";
+    background-color: var(--c0-primary);
+    color: white;
+    margin: 20px;
+    width: 300px;
+    height: 100px;
+    border-radius: 100px;
+    border-style: dashed;
+    border: 5px;
+}
+
+.tappedStyle {
+    font-family: "monaco";
+    margin: 20px;
+    width: 300px;
+    height: 100px;
+    color: var(--c0-primary);
+    border-radius: 100px;
+    border-color: var(--c0-primary);
+    border-style: dashed;
+    border-width: 5px;
+}
