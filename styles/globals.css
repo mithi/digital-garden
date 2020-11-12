@@ -66,14 +66,14 @@ button:focus {
     outline-color: var(--c0-primary);
 }
 
-article blockquote p {
-    color: grey;
-    border: dashed;
+article blockquote {
+    color: gray;
+    font-style: italic;
+    border-left: 5px solid var(--c0-primary);
+    padding: 15px;
     border-color: var(--c0-primary);
-    padding: 20px;
-    border-radius: 20px;
-    border-width: 1px;
-    margin: 30px;
+    margin: 20px;
+    margin-left: 0;
 }
 
 * {
