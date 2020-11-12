@@ -17,6 +17,7 @@ p {
     letter-spacing: 0.5px;
     word-spacing: 2px;
     line-height: 1.75;
+    margin: 10px;
 }
 
 a {
@@ -30,11 +31,49 @@ a:hover {
     font-weight: bolder;
 }
 
-h1 {
-    font-family: "Permanent Marker";
-    font-size: 3rem;
+h1,
+h2,
+h3,
+h4 {
     letter-spacing: 3px;
     word-spacing: 4px;
+    margin: 30px;
+    margin-left: 0;
+}
+
+h1 {
+    font-family: "Permanent Marker";
+    font-size: 3.25rem;
+}
+
+h2 {
+    font-family: "Permanent Marker";
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-weight: bolder;
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+button:focus {
+    outline-color: var(--c0-primary);
+}
+
+article blockquote p {
+    color: grey;
+    border: dashed;
+    border-color: var(--c0-primary);
+    padding: 20px;
+    border-radius: 20px;
+    border-width: 1px;
+    margin: 30px;
 }
 
 * {
@@ -52,11 +91,21 @@ h1 {
 }
 
 @media (max-width: 900px) {
-    h1 {
-        font-size: 2rem;
+    h1,
+    h2,
+    h3,
+    h4 {
         text-align: center;
         letter-spacing: 1px;
         word-spacing: 2px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
     }
 
     article {
