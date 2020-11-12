@@ -29,7 +29,7 @@
 
 .header {
     width: 100%;
-    height: 100px;
+    height: 50px;
     font-family: var(--header-font);
     font-size: 1.75rem;
     padding: 10px;
