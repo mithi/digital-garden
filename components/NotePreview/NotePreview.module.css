@@ -13,13 +13,6 @@
 
 .tag:hover,
 .highlightTag:hover {
-    background-color: var(--c1-secondary-faded);
-    border-width: 1px;
-    border-color: var(--c1-secondary-faded);
-    color: white;
-}
-
-.highlightTag {
     list-style-type: none;
     padding: 8px;
     font-size: 0.75rem;
@@ -27,9 +20,25 @@
     border-radius: 10px;
     border-width: 1px;
     margin: 5px;
-    border-color: var(--c0-primary-faded);
+    border-style: dashed;
     background-color: var(--c0-primary-faded);
+    border-width: 1px;
+    border-color: var(--c0-primary-faded);
     color: white;
+}
+
+.highlightTag {
+    list-style-type: none;
+    padding: 7px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border-width: 2px;
+    margin: 5px;
+    border-style: solid;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: var(--c1-secondary-faded);
+    color: var(--c1-secondary-faded);
 }
 
 .tagContainer {
