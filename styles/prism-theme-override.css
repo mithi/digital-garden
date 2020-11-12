@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap");
+code[class*="language-"],
+pre[class*="language-"] {
+    border-radius: 30px;
+    line-height: 2;
+    font-size: 1rem;
+    font-family: "Monaco", "Fira Mono", "Menlo";
+}
