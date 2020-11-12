@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Permanent+Marker&display=swap&family=Montserrat:wght@400&display=swap");
 
 :root {
+    --dark: #2f3640;
+    --light: #f5f6fa;
     --c0-primary: #e84393;
     --c0-primary-faded: #f4a1c9;
     --c1-secondary: #00b894;
