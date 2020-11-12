@@ -1,17 +1,18 @@
 # 🌱 Mithi's Digital Garden 🌷
 
-> This is a place where I drop notes about things on my mind. The entries here are mostly
-> incomplete thoughts; they probably won't useful for anyone else but me. Sorry you've stumbled
-> upon this, but there is really nothing really to see here.
+> This is a place where I drop notes about things on my mind. The entries here are mostly incomplete thoughts; they probably won't useful for anyone else but me. Sorry you've stumbled upon this, but there is really nothing really to see here.
 
-## Notes
+## Features
 
-```bash
-$ npx create-next-app digital-garden --use-npm
-$ touch tsconfig.json
-$ npm install --save-dev typescript @types/react @types/node
-$ npm run dev
-```
+-   [x] Mobile first, minimalist layout by yours truly
+-   [x] Light 🌼 and dark mode 🌙
+-   [x] 🔍 Tag search
+-   [x] [`mdx`](https://mdxjs.com/) support. Write your posts in markdown, and use React components in your markdown.
+-   [x] Code Syntax highlighting with [@mapbox/rehype-prism](https://github.com/mapbox/rehype-prism)
+-   [x] React Icons and Google Fonts
+-   [x] Static website generation with [`nextjs`](https://nextjs.org/)
+-   [ ] Fuzzy search bar with [fuse](https://fusejs.io/)
+-   [ ] Pagination for list of notes (or load more button)
 
 ## Personal Commit Style Guide
 
