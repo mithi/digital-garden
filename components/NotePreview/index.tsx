@@ -12,12 +12,9 @@ const NoteTitle = ({ id, title }) => (
 type TagType = { tags: string[]; id: string; highlightTag: string | null | undefined }
 export const Tags = ({ tags, id, highlightTag }: TagType) => {
     const list = tags.map(tag => (
-        <Link href={`/tags/${tag}`}>
+        <Link key={tag + id} href={`/tags/${tag}`}>
             <a>
-                <li
-                    className={tag === highlightTag ? styles.highlightTag : styles.tag}
-                    key={tag + id}
-                >
+                <li className={tag === highlightTag ? styles.highlightTag : styles.tag}>
                     {tag}
                 </li>
             </a>
