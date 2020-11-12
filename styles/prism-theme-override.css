@@ -5,4 +5,12 @@ pre[class*="language-"] {
     line-height: 2;
     font-size: 1rem;
     font-family: "Monaco", "Fira Mono", "Menlo";
+    margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        font-size: 0.75rem;
+    }
 }
