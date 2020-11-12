@@ -1,5 +1,6 @@
 import { Tags } from "../NotePreview"
 import Link from "next/link"
+import { FaArrowCircleUp } from "react-icons/fa"
 
 const NoteHeading = ({ meta }) => (
     <>
@@ -15,9 +16,11 @@ const NoteHeading = ({ meta }) => (
 
 const NoteFooter = ({ meta }) => (
     <>
-        <div style={{ margin: "30px", textAlign: "center" }}>
+        <div style={{ margin: "20px", fontSize: "1.5rem", textAlign: "center" }}>
             <Link href="">
-                <a>Back to the top</a>
+                <a>
+                    <FaArrowCircleUp />
+                </a>
             </Link>
         </div>
         <Tags {...{ tags: meta.tags, id: meta.title, highlightTag: null }} />
