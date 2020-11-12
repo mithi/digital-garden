@@ -6,17 +6,16 @@
     border-radius: 10px;
     border-width: 1px;
     margin: 5px;
-    opacity: 0.5;
     border-style: dashed;
-    border-color: var(--c0-primary);
-    color: var(--c0-primary);
+    border-color: var(--c0-primary-faded);
+    color: var(--c0-primary-faded);
 }
 
 .tag:hover,
 .highlightTag:hover {
-    background-color: var(--c1-secondary);
+    background-color: var(--c1-secondary-faded);
     border-width: 1px;
-    border-color: var(--c1-secondary);
+    border-color: var(--c1-secondary-faded);
     color: white;
 }
 
@@ -28,10 +27,8 @@
     border-radius: 10px;
     border-width: 1px;
     margin: 5px;
-    opacity: 0.4;
-    border-style: dashed;
-    border-color: var(--c0-primary);
-    background-color: var(--c0-primary);
+    border-color: var(--c0-primary-faded);
+    background-color: var(--c0-primary-faded);
     color: white;
 }
 

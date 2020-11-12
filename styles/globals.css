@@ -2,8 +2,11 @@
 
 :root {
     --c0-primary: #e84393;
+    --c0-primary-faded: #f4a1c9;
     --c1-secondary: #00b894;
+    --c1-secondary-faded: #80dcca;
 }
+
 html,
 body {
     padding: 0;
@@ -63,7 +66,12 @@ h4 {
 }
 
 button:focus {
-    outline-color: var(--c0-primary);
+    outline: 0;
+}
+
+button {
+    background: none;
+    border: none;
 }
 
 article blockquote {
