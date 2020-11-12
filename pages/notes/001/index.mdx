@@ -1,3 +1,4 @@
+import Note from "./../../../components/Note"
 import Demonstration from "./Demonstration"
 export const meta = {
     title: "Hello World",
@@ -5,7 +6,7 @@ export const meta = {
     tags: ["hello", "world"],
 }
 
-export default ({ children }) => <article>{children}</article>
+export default ({ children }) => <Note {...{ meta }}>{children}</Note>
 
 # H1 header
 

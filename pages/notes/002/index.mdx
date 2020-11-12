@@ -1,9 +1,10 @@
+import Note from "./../../../components/Note"
 export const meta = {
     title: "Hello World 2",
     description: "This is my second note",
     tags: ["world"],
 }
 
-export default ({ children }) => <article>{children}</article>
+export default ({ children }) => <Note {...{ meta }}>{children}</Note>
 
 This is the content of the next post I wrote

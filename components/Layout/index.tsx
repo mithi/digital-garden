@@ -40,7 +40,6 @@ const LinkInside = ({ Component, path }) => (
 
 const FooterNav = () => (
     <>
-        {" "}
         <LinkAway url="https://github.com/mithi" Component={GoOctoface} />
         <LinkAway url="https://www.instagram.com/minimithi/" Component={FaInstagram} />
         <LinkAway url="https://ko-fi.com/minimithi/" Component={BiCoffeeTogo} />
