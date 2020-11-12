@@ -8,6 +8,12 @@ pre[class*="language-"] {
     margin-top: 30px;
 }
 
+pre[class*="language-"] {
+    border: dotted;
+    border-width: 2px;
+    border-color: var(--c0-primary-faded);
+}
+
 @media (max-width: 600px) {
     code[class*="language-"],
     pre[class*="language-"] {

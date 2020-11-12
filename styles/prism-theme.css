@@ -1,7 +1,7 @@
 /* https://github.com/PrismJS/prism-themes/tree/master/themes */
 pre[class*="language-"],
 code[class*="language-"] {
-    color: #ff9f43;
+    color: #e206e9;
     font-size: 13px;
     text-shadow: none;
     font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New",
@@ -40,7 +40,6 @@ pre[class*="language-"] {
     padding: 1em;
     margin: 0.5em 0;
     overflow: auto;
-    background: #1e1e1e;
 }
 
 :not(pre) > code[class*="language-"] {
@@ -92,7 +91,7 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.deleted {
-    color: #fc4f83;
+    color: #ff9f1a;
 }
 
 .language-css .token.string.url {
@@ -121,25 +120,25 @@ pre[class*="language-"] {
 }
 
 .token.atrule .token.url .token.function {
-    color: #feca57;
+    color: #fc4f83;
 }
 
 .token.atrule .token.url .token.punctuation {
-    color: #ff9f43;
+    color: #fc4f83;
 }
-
+/*#ff4757*/
 .token.keyword {
     color: #9460fc;
 }
 
 .token.keyword.module,
 .token.keyword.control-flow {
-    color: #f368e0;
+    color: #ed69db;
 }
 
 .token.function,
 .token.function .token.maybe-class-name {
-    color: #feca57;
+    color: #ff4d4d;
 }
 
 .token.regex {
@@ -220,7 +219,7 @@ pre[class*="language-"] {
 }
 
 .token.attr-value .token.punctuation.attr-equals {
-    color: #ff9f43;
+    color: #ff4757;
 }
 
 .token.entity {
@@ -252,11 +251,11 @@ code[class*="language-css"] {
 
 pre[class*="language-html"],
 code[class*="language-html"] {
-    color: #ff9f43;
+    color: #ff793f;
 }
 
 .language-regex .token.anchor {
-    color: #feca57;
+    color: #ff4757;
 }
 
 .language-html .token.punctuation {
