@@ -35,10 +35,9 @@
     padding: 10px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .main {
         width: 100%;
         flex-direction: column;
-        padding: 1rem;
     }
 }

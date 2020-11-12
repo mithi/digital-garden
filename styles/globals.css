@@ -41,15 +41,6 @@ h1 {
     box-sizing: border-box;
 }
 
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2rem;
-        text-align: center;
-        letter-spacing: 1px;
-        word-spacing: 2px;
-    }
-}
-
 ::-moz-selection {
     background-color: var(--c0-primary);
     color: #fff;
@@ -58,4 +49,19 @@ h1 {
 ::selection {
     background-color: var(--c0-primary);
     color: #fff;
+}
+
+@media (max-width: 900px) {
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+        letter-spacing: 1px;
+        word-spacing: 2px;
+    }
+
+    article {
+        width: 100%;
+        flex-direction: column;
+        margin: 0;
+    }
 }
