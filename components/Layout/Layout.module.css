@@ -21,7 +21,7 @@
     width: 70%;
     height: 100px;
     font-size: 20px;
-    border-top: 1px solid #eaeaea;
+    border-top: 1px solid var(--c0-primary-faded);
     display: flex;
     justify-content: center;
     align-items: center;

@@ -77,7 +77,7 @@ button {
 }
 
 article blockquote {
-    color: gray;
+    opacity: 0.75;
     font-style: italic;
     border-left: 5px solid var(--c0-primary);
     padding: 15px;
