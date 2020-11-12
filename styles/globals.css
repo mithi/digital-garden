@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Permanent+Marker&display=swap&family=Montserrat:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Permanent+Marke&family=Montserrat:wght@400&&family=Sigmar+One&display=swap");
 
 :root {
     --dark: #2f3640;
@@ -7,6 +7,7 @@
     --c0-primary-faded: #f4a1c9;
     --c1-secondary: #00b894;
     --c1-secondary-faded: #80dcca;
+    --header-font: "Sigmar One";
 }
 
 html,
@@ -47,12 +48,12 @@ h4 {
 }
 
 h1 {
-    font-family: "Permanent Marker";
+    font-family: var(--header-font);
     font-size: 3.25rem;
 }
 
 h2 {
-    font-family: "Permanent Marker";
+    font-family: var(--header-font);
     font-size: 2.5rem;
 }
 

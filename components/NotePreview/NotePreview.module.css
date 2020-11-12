@@ -56,7 +56,7 @@
 }
 
 .title {
-    font-family: "Permanent Marker";
+    font-family: var(--header-font);
     font-size: 2rem;
     letter-spacing: 2px;
     word-spacing: 1px;
