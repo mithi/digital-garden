@@ -1,0 +1,155 @@
+import Note from "./../../../components/Note"
+import Link from "next/link"
+export const meta = {
+    title: "How I will study quadrotors",
+    description:
+        "My messy (at least for now) preliminary game plan to building my own quadrotor simulators and quadrotors.",
+    tags: ["robotics", "quadrotors"],
+}
+
+export default ({ children }) => <Note {...{ meta }}>{children}</Note>
+
+I've always been fascinated by Quadrotors ever since
+I've learned about the amazing acrobatic flips they can do [from Raffaello D'Andrea's Ted Talks](https://www.ted.com/talks/raffaello_d_andrea_the_astounding_athletic_power_of_quadcopters?language=en)
+But I've never built one and I've never understood them fully.
+
+<p>
+    Why?
+    <Link href="/notes/003">
+        <a>Because research papers are hard to read and I don't like MatLab.</a>
+    </Link>
+</p>
+
+## Contents
+
+-   [x] My game plan
+-   [x] Resources: What I've gathered so far
+-   [x] An overview of some concepts
+-   [x] Final thoughts
+
+## My Game Plan
+
+### First things first
+
+-   [ ] Further short list what I will read first from [this collection](https://github.com/mithi/robotics-coursework/issues/12) and explain why.
+-   [ ] Create a simple interactive visualization (using [my humble npm package](https://github.com/mithi/bare-minimum-3d)), on how to convert from body reference frame to world reference frame by rotating 3 angles
+-   [ ] Create a simple drone model (5 spheres and two sticks) and be able to manipulate its position and orientation (6 degrees of freedom) interactively
+-   [ ] Add functionality to bare minimum 3d to [be able to draw a 2d circle in 3d](https://github.com/mithi/bare-minimum-3d/issues/6)
+
+### Theory and Simulations
+
+> What I cannot create, I do not understand - Richard Feynman
+
+-   [ ] Read about quadrotors dynamics and control. The mathematical model and theory.
+-   [ ] Write notes and articles explaining what I learned
+-   [ ] Write simple interactive visualizations of mathematical building blocks to create a quadcopter simulation
+-   [ ] Read the code of simplest quadrotor simulators i've seen online
+-   [ ] Write pseudocode and explain the algorithms
+-   [ ] Write a quadrotor simulator with Python and Matplotlib
+-   [ ] Write a quadrotor simulator with Javascript and React
+
+### Understand algorithm implementation behind terminologies
+
+-   [ ] Minimum snap trajectory
+-   [ ] Linear Quadratic Regulator
+-   [ ] Model Predictive Control for Quadrotors
+
+### Hardware
+
+-   [ ] Learn more about hardware
+-   [ ] Shop for parts and buy them
+-   [ ] Build it and make it fly!
+-   [ ] Document every part of the process
+-   [ ] Expand this list further and expound on a separate note
+
+## Resources: What I've gathered so far
+
+Daniel Stefanovic's repository does not have a Build Your Own Drone / Quadrotor /Quadropter or something like that.
+Which is a bad thing, because I can't study it, but maybe a good thing, because I'll be
+contributing something new to the world, or something like that I guess.
+
+> [Daniel Stefanovic: Build your own X](https://github.com/danistefanovic/build-your-own-x)
+
+I've collected a few slides, papers, blog post, code examples here.
+
+> My collection of [PDFs and other stuff I intend to read about quadrotors](https://github.com/mithi/robotics-coursework/issues/12)
+
+## An overview of some concepts
+
+I've skimmed through some papers and code, so that I have a high level overview.
+
+-   [x] The four step feedback loop
+-   [x] Sensor fusion and kalman filters
+-   [x] Path planning with A\* and Minimum Snap Trajectory
+-   [x] Control Engineering for Highschoolers: wtf is LQR
+
+### The four step feedback loop
+
+Basically as with any robotics system with a goal, it's roughly like this:
+
+I want my quadcopter to go from point A to point B. But I don't want it
+to slam into walls or other obstacles. Also, I may want it to go travel a
+specific trajectory (go from one waypoint to another until it reaches the endpoint).
+
+1. Use the sensors to gain knowledge
+   of its current state (like position, velocity, acceleration, obstacles around)
+   (maybe use sensor fusion like kalman filters)
+
+2. Generate a trajectory (an ordered set of future states that we plan to ideally be in at a
+   particular point in time, x seconds into the future) based on knowledge of its current state, surroundings and goals
+
+3. Use a controller to tell the actuators how to move based
+   to our next ideal state.
+
+4. Repeat step 1 to 3 until necessary.
+
+### Sensor fusion and kalman filters
+
+I already know a lot about the basics of kalman filters.
+
+Best introduction to sensor fusion and kalman filters:
+
+-   [x] [my old article about sensor fusion](https://medium.com/@mithi/object-tracking-and-fusing-sensor-measurements-using-the-extended-kalman-filter-algorithm-part-1-f2158ef1e4f0)
+-   [x] [my old sample code about unscented kalman filters](https://github.com/mithi/fusion-ukf)
+-   [x] [understanding the basis of the kalman filter via a simple and intuitive derivation by ramsey faragher](https://synapticlab.co.kr/attachment/cfile1.uf@2737C54B590907BA0D46CE.pdf)
+-   [x] [how a kalman filter works, in pictures, bzarg, tim babb](http://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/)
+-   [x] [kalman and bayesian filters in python: roger labbe](https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python)
+
+### Path planning with A\* and Minimum Snap Trajectory
+
+When generating a trajectory given known obstacle locations.
+I always see A\*star, Dikjstra, and RRT algorithms being thrown around.
+
+> TODO: Learn more about `A\*star`, `Dijkstra` etc in the context of quadcopters
+
+And for smoothening about the trajectory, I always see
+`minimum snap trajectory` generation and control, being thrown around
+
+> TODO: Learn more about Minimum snap trajectory generation and control and polynomial planning (in 3 dimensions)
+
+I think it is like [JMT (Jerk Minimized Trajectory) which I in 2 dimensions implemented before](https://medium.com/@mithi/reflections-on-designing-a-virtual-highway-path-planner-part-2-3-392bc6cf11e7)
+
+Snap/jounce, is the fourth derivative of the position vector with respect to time,
+or the rate of change of the jerk with respect to time.
+It is the second derivative of acceleration or the third derivative of velocity.
+Jerk is the change in acceleration, just like acceleration is a change in velocity.
+Snap is a change in jerk.
+
+### Control Engineering for Highschoolers
+
+Control theory and control engineering is basically what to tell
+the actuators given that we know what our state is probably (based on the sensors)
+so that the quadrotor will be at the desired goal state.
+
+Some settle for the most basic control [`PID`](https://github.com/mithi/some-udacity-projects/tree/some-udacity-projects/simple-pid-toy) control, but I also see
+[`MPC` model predictive control](http://github.com/mithi/mpc) and `LQR`, linear quadratic regulator being thrown
+a lot.
+
+> Brushup on control theory, this looks awesome!
+> [Tyler Veness: Graduate-level control theory for high schoolers](https://github.com/calcmogul/controls-engineering-in-frc)
+
+## Final thoughts
+
+This might seem like a hodge podge for now, but these things has been on my mind for a couple of months now.
+I'm glad I released it in here.
+I still have a lot of things I want to get off my brain, but this is all for now.

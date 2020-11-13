@@ -1,16 +1,19 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { ThemeContext } from "../../../components/Theme/index"
 import styles from "./Note.module.css"
 
 const Demonstration = () => {
-    const [tapped, setTapped] = useState(false)
+    const { theme, toggleTheme } = useContext(ThemeContext)
+
+    const isLight = theme === "light"
 
     return (
         <button
             type="button"
-            className={tapped ? styles.tappedStyle : styles.normalStyle}
-            onClick={() => setTapped(!tapped)}
+            className={isLight ? styles.isLight : styles.isDark}
+            onClick={toggleTheme}
         >
-            {tapped ? "I am tapped! ❤️❤️" : "🤜 Tap this React Component 🤛"}
+            {isLight ? "🌙 Tap for 🌙 mode 🌙" : "🌼 Tap for 🌼 mode 🌼"}
         </button>
     )
 }

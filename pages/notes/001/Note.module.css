@@ -1,4 +1,4 @@
-.normalStyle {
+.isLight {
     font-family: "monaco";
     background-color: var(--c0-primary);
     color: white;
@@ -10,7 +10,7 @@
     border: 5px;
 }
 
-.tappedStyle {
+.isDark {
     font-family: "monaco";
     margin: 20px;
     width: 300px;
