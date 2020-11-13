@@ -13,6 +13,8 @@
 -   [x] Static website generation with [`nextjs`](https://nextjs.org/)
 -   [ ] Fuzzy search bar with [fuse](https://fusejs.io/)
 -   [ ] Pagination for list of notes (or load more button)
+-   [ ] Add estimated reading time
+-   [ ] [A few more simple enhancements](https://github.com/mithi/digital-garden/issues/3)
 
 ## Personal Commit Style Guide
 
@@ -72,11 +74,6 @@
 
 ## References
 
-Tools
-
+-   [Maggie Appleton's Digital Gardeners Repository](https://github.com/MaggieAppleton/digital-gardeners)
 -   [Kate Hudson: Syntax Highlighting Theme Generator for Prism](http://k88hudson.github.io/syntax-highlighting-theme-generator/www/)
-
-Layout inspirations
-
--   [Joel Hooks](https://joelhooks.com/)
--   [Dan Abramov](https://overreacted.io/)
+-   Layout inspirations: [Joel Hooks](https://joelhooks.com/), [Dan Abramov](https://overreacted.io/)
