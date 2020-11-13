@@ -18,12 +18,17 @@ body {
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-p {
+p,
+li {
     font-size: 1.1rem;
     letter-spacing: 0.5px;
     word-spacing: 2px;
     line-height: 1.75;
     margin: 10px;
+}
+
+li {
+    margin: 5px;
 }
 
 a {
