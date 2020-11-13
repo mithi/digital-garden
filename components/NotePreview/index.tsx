@@ -4,7 +4,7 @@ import styles from "./NotePreview.module.css"
 const NoteTitle = ({ id, title }) => (
     <Link href={`/notes${id}`}>
         <a>
-            <h2 className={styles.title}>🌷{title}</h2>
+            <h2 className={styles.title}>{title}</h2>
         </a>
     </Link>
 )
@@ -26,7 +26,7 @@ export const Tags = ({ tags, id, highlightTag }: TagType) => {
 const NotePreview = ({ note, highlightTag }) => (
     <div className={styles.previewContainer}>
         <NoteTitle {...{ id: note.id, title: note.meta.title }} />
-        <p className={styles.description}>{note.meta.description}</p>
+        <p className={styles.description}>🌷{note.meta.description}</p>
         <Tags {...{ tags: note.meta.tags, id: note.id, highlightTag }} />
     </div>
 )
