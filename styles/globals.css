@@ -25,6 +25,8 @@ li {
     word-spacing: 2px;
     line-height: 1.75;
     margin: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 li {
@@ -33,12 +35,12 @@ li {
 
 ol {
     list-style-type: decimal;
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 ul {
     list-style-type: square;
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 a {
@@ -58,8 +60,8 @@ h3,
 h4 {
     letter-spacing: 3px;
     word-spacing: 4px;
-    margin: 30px;
-    margin-left: 0;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 h1 {
@@ -99,10 +101,10 @@ article blockquote {
     opacity: 0.75;
     font-style: italic;
     border-left: 5px solid var(--c0-primary);
-    padding: 15px;
+    padding: 10px;
     border-color: var(--c0-primary);
-    margin: 20px;
-    margin-left: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
     line-height: 1.25;
 }
 
@@ -127,14 +129,20 @@ article blockquote {
     h4 {
         letter-spacing: 1px;
         word-spacing: 2px;
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 
     h1 {
-        font-size: 3rem;
+        font-size: 2.4rem;
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
     }
 
     article {
