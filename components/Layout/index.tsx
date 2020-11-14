@@ -9,6 +9,7 @@ import { ImPriceTags } from "react-icons/im"
 import { BiCoffeeTogo } from "react-icons/bi"
 import { BsMoon } from "react-icons/bs"
 import { HiSun } from "react-icons/hi"
+import { GiFlowerPot } from "react-icons/gi"
 
 const Nav = () => {
     return (
@@ -91,5 +92,15 @@ const Layout = ({ children }) => {
         </div>
     )
 }
+
+export const FlowerPot = ({ fontSize = "3rem", margin = "10px" } = {}) => (
+    <button style={{ fontSize, margin }}>
+        <Link href="/notes">
+            <a>
+                <GiFlowerPot />
+            </a>
+        </Link>
+    </button>
+)
 
 export default Layout
