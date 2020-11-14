@@ -57,9 +57,9 @@ const ThemeButton = ({ light, dark }: themeButtonPropsType) => {
 const FooterNav = () => (
     <>
         <LinkAway url="https://github.com/mithi" render={<GoOctoface />} />
-        <LinkAway url="https://www.instagram.com/minimithi/" render={<FaInstagram />} />
         <LinkAway url="https://ko-fi.com/minimithi/" render={<BiCoffeeTogo />} />
         <LinkAway url="https://medium.com/@mithi" render={<FaMedium />} />
+        <LinkAway url="https://www.instagram.com/minimithi/" render={<FaInstagram />} />
         <LinkInside path="/tags" render={<ImPriceTags />} />
         <LinkInside path="/notes" render={<FaRegStickyNote />} />
         <ThemeButton />
