@@ -1,0 +1,111 @@
+import Note from "./../../../components/Note"
+import Link from "next/link"
+export const meta = {
+    title: "Robotics Study Plan Checklist",
+    description:
+        "Robotics stuff I want to study and build. I might be able to do only 10% of this in my lifetime and that's okay.",
+    tags: ["robotics", "checklist", "links", "project"],
+}
+
+export default ({ children }) => <Note {...{ meta }}>{children}</Note>
+
+I've done something like this before in [my old robotics blog](https://mithi.github.io/robotics-blog/ideas/)
+Where I list all the cool stuff that seems to be exciting to learn and build and explore.
+I won't necessarily be able to accomplish these things, and that's okay.
+This is again another brain dump I guess.
+
+-   [ ] Mathematical and Theoretical Foundations
+-   [ ] Underactuated Robotics
+-   [ ] Hexapods Sprawling Quadrupeds
+-   [ ] Robot Arms
+-   [ ] Quadcopters
+-   [ ] Mechanisms with Lego and 3d Printing
+-   [ ] Wishlist
+
+## Mathematical and Theoretical Foundations
+
+1. [ ] Create a simple visualizer of homogenous transforms, and 3d rotations converter with quaternions etc
+2. [ ] [The Essence of linear Algebra](https://www.3blue1brown.com/) (finish all 3blue1brown videos)
+
+    a. [Linear Algebra Done Right](https://www.amazon.com/Linear-Algebra-Right-Undergraduate-Mathematics/dp/0387982582) by Axler
+
+    b. Maybe also build a couple of visualizers that illustrate linear algebra concepts
+
+3. [ ] [Tyler Veness: Graduate-level control theory for high schoolers](https://github.com/calcmogul/controls-engineering-in-frc)
+
+4. [ ] It would be interesting to revisit Newtonian Mechanics and Dynamics course back from freshman college
+
+5. [ ] It's also interesting to study dynamics and control of a 3d pendulums and variations
+
+    a. Simulation of 3d Simple pendulums and double pendulums
+
+    b. Simulation of 3 Inverted pendulums etc
+
+    c. Read papers about Nonlinear dynamics of a 3d pendulums, Dynamics and Control of a 3D Pendulum
+
+6. [ ] Checkout some of the resources for the [prerequisites](http://underactuated.csail.mit.edu/Spring2020/resources.html) of the under actuated course particularly
+
+    a. [Ordinary Differential Equations in Khan's Academy](https://www.khanacademy.org/math/differential-equations)
+
+    b. [Nonlinear Dynamics and Chaos by Strogatz](https://www.amazon.com/Nonlinear-Dynamics-Chaos-Applications-Nonlinearity/dp/0738204536)
+
+7. [ ] Try out underactuated robotics course [Russ Tedrake](http://underactuated.csail.mit.edu/Spring2020/) (atleast half)
+
+## Robot Arm
+
+1. [ ] Write a robot arm simulator that can be used to control a real robot arm [my real robot arm](https://www.kickstarter.com/projects/1128055363/7bot-a-powerful-desktop-robot-arm-for-future-inven)
+       a. You should be able to control the robots end effector with your mouse
+2. [ ] Use my robot arm simulator to control this [my robot arm](https://www.kickstarter.com/projects/1128055363/7bot-a-powerful-desktop-robot-arm-for-future-inven)
+
+## Hexapod and Sprawling Quadrupeds
+
+1. [ ] Build a hexapod robot from AliExpress with Arduino and a PS2 controller clone
+2. [ ] Convert that hexapod to use Raspberry Pi instead
+3. [ ] Use [my app](https://github.com/mithi/hexapod) to control that hexapod with [LocalXpose](https://localxpose.io/) from anywhere in the world with WIFI
+4. [ ] Build 3d printed / lazercut robot with microservos - [Petar Crnjak](3D-printed-Hexapod) Code and STL files for small 18 servo hexapod
+5. [ ] Write my own code to make a sprawling quadruped move the way I want
+
+## Quadruped Dog
+
+1. [ ] Study the papers, code, and articles by [Maurice Rahme](https://github.com/OpenQuadruped/spot_mini_mini) and [Adham Elarabawy](https://github.com/adham-elarabawy/open-quadruped)
+2. [ ] Build a simple simulator of the quadruped like Adham Elarabawy did
+
+## Quadcopters
+
+1. [ ] Build a quadcopter simulator. Given a list of specified way points, generate a simulation of the quadcopter going from point to point using the minimum snap trajectory algorithm.
+
+    a. not only should the state be displayed but also the control inputs (for each motor) among others
+
+2. [ ] Build an actual quadcopter from the ground up that I will program from scratch
+
+## Mechanisms, Lego and 3d printing
+
+I've always found mechanisms interesting. Here's some of my favorite lego builders
+
+1. [Akiyuki Kawaguchi's great ball contraptions](https://akiyuki.jp/en/)
+2. [ISOGAWA Yoshihito](http://www.isogawastudio.co.jp/legostudio/toranomaki/en/)
+3. [Paul Sariel](http://sariel.pl/) and his favorite lego builders
+
+    a. [Jennifer Clark](http://www.genuinemodels.com/)
+
+    b. [Nico 71](http://www.nico71.fr/)
+
+4. [JK Brickworks](https://jkbrickworks.com/)
+
+-   [ ] I hope I can also make time to make awesome stuff like them.
+-   [ ] I've never really did a lot of CADWork like using Fusion360 or OnShape, and it's something
+        I've always wanted to try.
+-   [ ] I want to make adapters that I can 3d print so
+        that I can use popular servo motors and other actuators (motors and stepers)
+        work with lego.
+-   [ ] There are also a lot of really cool open source mechanisms in thingiverse that you can 3d print.
+        It would be really cool to 3d print them!
+
+## Wishlist
+
+I've already done [a wishlist before](https://mithi.github.io/robotics-blog/wish-list/)
+Here's a short list
+
+1. [ ] [A creality 3d printer](https://creality3d.shop/)
+2. [ ] ALL [Unique Wooden Mechanical Models UGears Models ](https://ugearsmodels.com/)
+3. [ ] Parts to build my own drone
