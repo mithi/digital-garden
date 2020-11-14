@@ -4,65 +4,64 @@ import Link from "next/link"
 import { ThemeContext } from "../Theme/index"
 import styles from "./Layout.module.css"
 import { GoOctoface } from "react-icons/go"
-import { FaInstagram, FaRegStickyNote } from "react-icons/fa"
+import { FaInstagram, FaRegStickyNote, FaMedium } from "react-icons/fa"
 import { ImPriceTags } from "react-icons/im"
 import { BiCoffeeTogo } from "react-icons/bi"
 import { BsMoon } from "react-icons/bs"
 import { HiSun } from "react-icons/hi"
+import { GiFlowerPot } from "react-icons/gi"
 
 const Nav = () => {
-    const { theme, toggleTheme } = useContext(ThemeContext)
     return (
         <>
-            <Link href="/">
-                <a> 🌱 </a>
-            </Link>
-            <button style={{ fontSize: "1.6rem" }} onClick={toggleTheme}>
-                {theme === "light" ? "🌼" : "🌙"}
-            </button>
-            <Link href="/notes">
-                <a> 🌷 </a>
-            </Link>
+            <LinkInside path="/" render="🌷" />
+            <ThemeButton light="🌼" dark="🌙" />
         </>
     )
 }
 
-const LinkAway = ({ Component, url }) => (
-    <a href={url} target="_blank" rel="noopener noreferrer">
-        <span style={{ margin: "10px" }}>
-            <Component />
+const LinkAway = ({ render, url }) => (
+    <button className={styles.button}>
+        <a href={url} target="_blank" rel="noopener noreferrer">
+            <span>{render}</span>
+        </a>
+    </button>
+)
+
+const LinkInside = ({ render, path }) => (
+    <button className={styles.button}>
+        <span>
+            <Link href={path}>
+                <a>{render}</a>
+            </Link>
         </span>
-    </a>
+    </button>
 )
 
-const LinkInside = ({ Component, path }) => (
-    <span style={{ margin: "10px" }}>
-        <Link href={path}>
-            <a>
-                <Component />
-            </a>
-        </Link>
-    </span>
-)
+type themeButtonPropsType = {
+    light?: any
+    dark?: any
+}
 
-const ThemeButton = () => {
+const ThemeButton = ({ light, dark }: themeButtonPropsType) => {
+    const lightRender = light || <HiSun />
+    const darkRender = dark || <BsMoon />
+
     const { theme, toggleTheme } = useContext(ThemeContext)
     return (
-        <button
-            style={{ fontSize: "1.6rem", color: "var(--c0-primary)" }}
-            onClick={toggleTheme}
-        >
-            {theme === "light" ? <HiSun /> : <BsMoon />}
+        <button className={styles.button} onClick={toggleTheme}>
+            {theme === "light" ? lightRender : darkRender}
         </button>
     )
 }
 const FooterNav = () => (
     <>
-        <LinkAway url="https://github.com/mithi" Component={GoOctoface} />
-        <LinkAway url="https://www.instagram.com/minimithi/" Component={FaInstagram} />
-        <LinkAway url="https://ko-fi.com/minimithi/" Component={BiCoffeeTogo} />
-        <LinkInside path="/tags" Component={ImPriceTags} />
-        <LinkInside path="/notes" Component={FaRegStickyNote} />
+        <LinkAway url="https://github.com/mithi" render={<GoOctoface />} />
+        <LinkAway url="https://www.instagram.com/minimithi/" render={<FaInstagram />} />
+        <LinkAway url="https://ko-fi.com/minimithi/" render={<BiCoffeeTogo />} />
+        <LinkAway url="https://medium.com/@mithi" render={<FaMedium />} />
+        <LinkInside path="/tags" render={<ImPriceTags />} />
+        <LinkInside path="/notes" render={<FaRegStickyNote />} />
         <ThemeButton />
     </>
 )
@@ -91,5 +90,15 @@ const Layout = ({ children }) => {
         </div>
     )
 }
+
+export const FlowerPot = ({ fontSize = "3rem", margin = "10px" } = {}) => (
+    <button style={{ fontSize, margin }}>
+        <Link href="/notes">
+            <a>
+                <GiFlowerPot />
+            </a>
+        </Link>
+    </button>
+)
 
 export default Layout
