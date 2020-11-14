@@ -148,10 +148,4 @@ article blockquote {
     h3 {
         font-size: 1.5rem;
     }
-
-    article {
-        width: 100%;
-        flex-direction: column;
-        margin: 0;
-    }
 }
