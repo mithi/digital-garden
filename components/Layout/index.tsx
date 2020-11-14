@@ -11,58 +11,58 @@ import { BsMoon } from "react-icons/bs"
 import { HiSun } from "react-icons/hi"
 
 const Nav = () => {
-    const { theme, toggleTheme } = useContext(ThemeContext)
     return (
         <>
-            <Link href="/">
-                <a> 🌱 </a>
-            </Link>
-            <button style={{ fontSize: "1.6rem" }} onClick={toggleTheme}>
-                {theme === "light" ? "🌼" : "🌙"}
-            </button>
-            <Link href="/notes">
-                <a> 🌷 </a>
-            </Link>
+            <LinkInside path="/" render="🌷" />
+            <ThemeButton light="🌼" dark="🌙" />
         </>
     )
 }
 
-const LinkAway = ({ Component, url }) => (
-    <a href={url} target="_blank" rel="noopener noreferrer">
+const LinkAway = ({ render, url }) => (
+    <button style={{ fontSize: "1.6rem" }}>
+        <a href={url} target="_blank" rel="noopener noreferrer">
+            <span style={{ margin: "10px" }}>{render}</span>
+        </a>
+    </button>
+)
+
+const LinkInside = ({ render, path }) => (
+    <button style={{ fontSize: "1.6rem" }}>
         <span style={{ margin: "10px" }}>
-            <Component />
+            <Link href={path}>
+                <a>{render}</a>
+            </Link>
         </span>
-    </a>
+    </button>
 )
 
-const LinkInside = ({ Component, path }) => (
-    <span style={{ margin: "10px" }}>
-        <Link href={path}>
-            <a>
-                <Component />
-            </a>
-        </Link>
-    </span>
-)
+type themeButtonPropsType = {
+    light?: any
+    dark?: any
+}
 
-const ThemeButton = () => {
+const ThemeButton = ({ light, dark }: themeButtonPropsType) => {
+    const lightRender = light || <HiSun />
+    const darkRender = dark || <BsMoon />
+
     const { theme, toggleTheme } = useContext(ThemeContext)
     return (
         <button
             style={{ fontSize: "1.6rem", color: "var(--c0-primary)" }}
             onClick={toggleTheme}
         >
-            {theme === "light" ? <HiSun /> : <BsMoon />}
+            {theme === "light" ? lightRender : darkRender}
         </button>
     )
 }
 const FooterNav = () => (
     <>
-        <LinkAway url="https://github.com/mithi" Component={GoOctoface} />
-        <LinkAway url="https://www.instagram.com/minimithi/" Component={FaInstagram} />
-        <LinkAway url="https://ko-fi.com/minimithi/" Component={BiCoffeeTogo} />
-        <LinkInside path="/tags" Component={ImPriceTags} />
-        <LinkInside path="/notes" Component={FaRegStickyNote} />
+        <LinkAway url="https://github.com/mithi" render={<GoOctoface />} />
+        <LinkAway url="https://www.instagram.com/minimithi/" render={<FaInstagram />} />
+        <LinkAway url="https://ko-fi.com/minimithi/" render={<BiCoffeeTogo />} />
+        <LinkInside path="/tags" render={<ImPriceTags />} />
+        <LinkInside path="/notes" render={<FaRegStickyNote />} />
         <ThemeButton />
     </>
 )
