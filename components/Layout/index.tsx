@@ -4,7 +4,7 @@ import Link from "next/link"
 import { ThemeContext } from "../Theme/index"
 import styles from "./Layout.module.css"
 import { GoOctoface } from "react-icons/go"
-import { FaInstagram, FaRegStickyNote } from "react-icons/fa"
+import { FaInstagram, FaRegStickyNote, FaMedium } from "react-icons/fa"
 import { ImPriceTags } from "react-icons/im"
 import { BiCoffeeTogo } from "react-icons/bi"
 import { BsMoon } from "react-icons/bs"
@@ -21,16 +21,16 @@ const Nav = () => {
 }
 
 const LinkAway = ({ render, url }) => (
-    <button style={{ fontSize: "1.6rem" }}>
+    <button className={styles.button}>
         <a href={url} target="_blank" rel="noopener noreferrer">
-            <span style={{ margin: "10px" }}>{render}</span>
+            <span>{render}</span>
         </a>
     </button>
 )
 
 const LinkInside = ({ render, path }) => (
-    <button style={{ fontSize: "1.6rem" }}>
-        <span style={{ margin: "10px" }}>
+    <button className={styles.button}>
+        <span>
             <Link href={path}>
                 <a>{render}</a>
             </Link>
@@ -49,10 +49,7 @@ const ThemeButton = ({ light, dark }: themeButtonPropsType) => {
 
     const { theme, toggleTheme } = useContext(ThemeContext)
     return (
-        <button
-            style={{ fontSize: "1.6rem", color: "var(--c0-primary)" }}
-            onClick={toggleTheme}
-        >
+        <button className={styles.button} onClick={toggleTheme}>
             {theme === "light" ? lightRender : darkRender}
         </button>
     )
@@ -62,6 +59,7 @@ const FooterNav = () => (
         <LinkAway url="https://github.com/mithi" render={<GoOctoface />} />
         <LinkAway url="https://www.instagram.com/minimithi/" render={<FaInstagram />} />
         <LinkAway url="https://ko-fi.com/minimithi/" render={<BiCoffeeTogo />} />
+        <LinkAway url="https://medium.com/@mithi" render={<FaMedium />} />
         <LinkInside path="/tags" render={<ImPriceTags />} />
         <LinkInside path="/notes" render={<FaRegStickyNote />} />
         <ThemeButton />
