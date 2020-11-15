@@ -2,82 +2,91 @@ import Note from "./../../../components/Note"
 import Link from "next/link"
 export const meta = {
     title: "Web Development Checklist",
-    description: "What the title says",
-    tags: ["web-development", "checklist"],
+    description: "Links I would explore in web development in order of priority",
+    tags: ["web-development", "checklist", "links"],
 }
 
 export default ({ children }) => <Note {...{ meta }}>{children}</Note>
 
-⭐ Priority
-❗Urgent
-💕Something that looks really good
-😊 Something that I really liked
+-   ❗🚨 Priority
+-   💙 Something that looks really good
+-   😊 Something that I really liked
 
-## Checklist in order of priority
+## ✅ Checklist
 
--   [ ] ❗❗React (Advanced) and Redux (Fundamentals), Testing (Intermediate)
--   [ ] ❗❗CSS (Intermediate)
--   [ ] ❗Javascript (Advanced) and Typescript (Intermediate)
--   [ ] ❗ GraphQL (Intermediate) and Apollo Client (Fundamentals)
+-   [ ] 🚨❗❗React (Advanced)
+-   [ ] Redux (Fundamentals)
+-   [ ] Testing (Intermediate): Jest and [Cypress (Egghead)](https://egghead.io/browse/tools/cypress)
+-   [ ] 🚨❗❗CSS (Intermediate)
+-   [ ] 🚨❗Typescript (Intermediate)
+-   [ ] 🚨❗ GraphQL (Intermediate),
+    -   [ ] Apollo Client (Fundamentals)
+-   [ ] Javascript (Advanced)
 -   [ ] Git (Advanced)
--   [ ] PostgreSQL (Advanced)
--   [ ] Docker (Fundamentals) and VIM (fundamentals)
+-   [ ] SQL (Advanced)
+-   [ ] Docker (Fundamentals), VIM (fundamentals)
 
-### Algorithms
+## Questions
 
-TODO
+-   How do JSON Web Tokens work?
+-   Explain end-to-end web development. See also: [Jem Young, full stack and dev ops for front end](https://github.com/young)
 
-### React (Advanced), Redux (Fundamentals), Testing (Intermediate)
+## ✅ 💵 Possible Paid resources
 
--   [ ] ❗❗⭐[Kent C Dodds: Epic React](https://epicreact.dev/learn)
--   [ ] 💕[UI.dev Redux Course](https://ui.dev/)
--   [ ] [Wes Bos: Advanced React](https://github.com/wesbos/Advanced-React)
--   [ ] [Egghead: Cypress](https://egghead.io/browse/tools/cypress)
+-   [ ] 💵 🚨❗❗ [Kent C Dodds: Epic React](https://epicreact.dev/learn)
+-   [ ] 💵 💙 [UI.dev Redux Course](https://ui.dev/)
+-   [ ] 💵 [Wes Bos: Advanced React](https://github.com/wesbos/Advanced-React)
+-   [ ] 💵 💙 [Grid Garden](https://codepip.com/games/) and other Codepip games
+-   [ ] 💵 💙 [Educative.io: Grokking the Systems Design Interview](https://www.educative.io/courses/grokking-the-system-design-interview)
+-   [ ] 💵 💙 [Algo Expert](https://www.algoexpert.io/)
+
+## ✅ Detailed Checklist
 
 ### CSS (Intermediate)
 
 -   [ ] [Tania Rascia: A Complete Guide to CSS Concepts and Fundamentals](https://www.taniarascia.com/overview-of-css-concepts/)
--   [ ] ⭐[Flexbox Froggy](https://flexboxfroggy.com/)
--   [ ] ⭐ [Grid Garden](https://codepip.com/games/) and other Codepip games
--   [ ] ❗⭐ [Wes Bos: CSS Grid](https://cssgrid.io/)
--   [ ] ❗⭐ [Wes Bos Flexbox](https://flexbox.io/)
+-   [ ] 💙 [Flexbox Froggy](https://flexboxfroggy.com/) and [Grid Garden](https://codepip.com/games/) and other Codepip games
+-   [ ] 🚨❗[Wes Bos: CSS Grid](https://cssgrid.io/)
+-   [ ] 🚨❗[Wes Bos Flexbox](https://flexbox.io/)
 -   [ ] [Grid By Example](https://gridbyexample.com/examples/)
 
 ### GraphQL (Intermediate)
 
--   [ ] ❗⭐ [Robin Wieruch: React with Apollo and GraphQL Tutorial](https://www.robinwieruch.de/react-graphql-apollo-tutorial/)
--   [ ] [GraphQL Mastery language course](https://graphqlmastery.com/course/graphql-language)
+-   [ ] 🚨❗ [Robin Wieruch: React with Apollo and GraphQL Tutorial](https://www.robinwieruch.de/react-graphql-apollo-tutorial/)
+-   [ ] 💙 [GraphQL Mastery - language course](https://graphqlmastery.com/course/graphql-language)
 
-### Javascript (Advanced) and Typescript (Intermediate)
+### Javascript (Advanced)
 
-TODO
+-   [getify/you-dont-know-js ⭐130k](https://github.com/getify/You-Dont-Know-JS)
+-   💙[ryanmcdermott/clean-code-javascript ⭐40.6k](https://github.com/ryanmcdermott/clean-code-javascript)
+-   💙[lydiahallie/javascript-questions ⭐24.1k](https://github.com/lydiahallie/javascript-questions)
+
+### Typescript (Intermediate)
+
+-   [typescript-cheatsheets/react ⭐ 19.5k](https://github.com/typescript-cheatsheets/react)
+-   🚨❗💙 [basarat/typescript-book⭐11.5k](https://github.com/basarat/typescript-book)
+-   [rmolinamir: Typescript cheatsheet](https://rmolinamir.github.io/typescript-cheatsheet/)
 
 ### Git (Advanced)
 
 -   [x] 😊[Learn Git Branching](https://learngitbranching.js.org/)
--   [ ] [Kate Hudson: Git Flight Rules](https://github.com/k88hudson/git-flight-rules)
+-   [ ] 💙 [Kate Hudson: Git Flight Rules](https://github.com/k88hudson/git-flight-rules)
 -   [ ] [Nina Zakharenko: Advanced Git ](https://github.com/nnja/advanced-git)
+-   [ ] [Git Immersion](https://gitimmersion.com) | [Build your own Git](https://github.com/danistefanovic/build-your-own-x#build-your-own-git)
 
-### PostgreSQL (Advanced)
+### SQL (Advanced)
 
--   [x] [Enoch Tangg SQL Cheatsheet](https://github.com/enochtangg/quick-SQL-cheatsheet)
-        | [Hornbill SQL cheatsheet](https://github.com/Hornbill201/SQL-cheatsheet)
-        | [Hunter Ducharm SQL Basics](https://hunter-ducharme.gitbook.io/sql-basics/)
+-   [x] [Enoch Tangg SQL Cheatsheet](https://github.com/enochtangg/quick-SQL-cheatsheet) | [Hornbill](https://github.com/Hornbill201/SQL-cheatsheet) | [Hunter Ducharm](https://hunter-ducharme.gitbook.io/sql-basics/)
 -   [x] [SQL Zoo](https://sqlzoo.net/)
 -   [x] [SQL Bolt](https://sqlbolt.com/)
 -   [ ] [Brian Holt: Complete Intro to Databases](https://btholt.github.io/complete-intro-to-databases/)
--   [ ] 💕[PG Exercises](https://pgexercises.com/)
+-   [ ] 💙 [PG Exercises](https://pgexercises.com/)
 -   [ ] [Egghead: Advanced SQL](https://egghead.io/courses/advanced-sql-for-professional-developers)
 
 ### Docker (Fundamentals), VIM (fundamentals)
 
--   [ ] 💕[Brian Holt: The Complete Intro to Containers!](https://github.com/btholt/complete-intro-to-containers)
--   [ ] 💕[Vim Adventures: Learn Vim while playing a game](https://vim-adventures.com/)
-
-## Popular React libraries
-
--   [ ] [React Drag N Drop](https://github.com/react-dnd/react-dnd)
--   [ ] [React Spring](https://github.com/pmndrs/react-spring)
--   [ ] [React Select](https://github.com/jedwatson/react-select)
--   [ ] [React Motions](https://github.com/chenglou/react-motion)
--   [ ] [React hook form](https://github.com/react-hook-form/react-hook-form)
+-   [ ] 💙 [Brian Holt: The Complete Intro to Containers!](https://github.com/btholt/complete-intro-to-containers)
+-   [ ] 💙 [Vim Adventures: Learn Vim while playing a game](https://vim-adventures.com/)
+-   [ ] 💙 [The Interactive Vim Tutorial by OpenVim](https://www.openvim.com/tutorial.html)
+-   [ ] [jlevy/the-art-of-command-line](https://github.com/jlevy/the-art-of-command-line)
+-   [ ] [Shellscript.sh](https://www.shellscript.sh/) | [swcarpentry/shell-novice](https://github.com/swcarpentry/shell-novice) | [Tania Rascia](https://www.taniarascia.com/how-to-create-and-use-bash-scripts/)
