@@ -16,6 +16,22 @@
 -   [ ] Add estimated reading time
 -   [ ] [A few more simple enhancements](https://github.com/mithi/digital-garden/issues/3)
 
+## Note format
+
+```js
+import Note from "./../../../components/Note"
+import Link from "next/link"
+export const meta = {
+    title: "What is a digital garden?",
+    description: "What is it for? And why do I have one?",
+    tags: ["hello-world", "ramblings"],
+}
+
+export default ({ children }) => <Note {...{ meta }}>{children}</Note>
+
+/* MY CONTENT HERE */
+```
+
 ## Personal Commit Style Guide
 
 (New feature)
