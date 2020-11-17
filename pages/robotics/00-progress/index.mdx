@@ -1,0 +1,34 @@
+import Note from "./../../../components/Note"
+import Link from "next/link"
+export const meta = {
+    title: "Robotics Progress Report",
+    description: "Tracking my weekly progress in my robotics projects",
+    tags: ["robotics", "checklist", "weekly-progress"],
+}
+
+export default ({ children }) => <Note {...{ meta }}>{children}</Note>
+
+## Week 1
+
+### Done
+
+-   [x] Binge-watched almost all Essence of Linear Algebra Playlist of 3Blue1Brown (I did not watch the one about the cross product and the one cramer's rule, and a few more I think)
+    -   eigenvectors/eigen values, change of basis, rank, null space, column space, linear span, linear combination, determinant, linear transformation, cross and dot products
+    -   [A Summary of Linear Algebra John Mitchell](https://homepages.rpi.edu/~mitchj/handouts/linalg/)
+-   [x] Skimmed through papers
+    -   [x] [Modelling and control of quadcopter, Teppo Luukkonen, Aalto University, August 22, 2011](https://github.com/mithi/robotics-coursework/issues/12#issuecomment-726867035)
+    -   [x] [Trajectory Generation and Control for Quadrotors, Daniel Warren Mellinger, University of Pennsylvania, 1-1-2012](https://github.com/mithi/robotics-coursework/issues/12#issuecomment-727006842)
+-   [x] Read a bit about minimum snap trajectory from:
+    -   [x] [aerial robotics coursera assignment 3](https://github.com/nanicalabs/AerialRobotics-Coursera/blob/master/Assignment3.pdf)
+    -   [x] [peter huang's simple quadrotor sample code](https://github.com/hbd730/quadcopter-simulation)
+    -   [x] [python robotics quadrotor sample code by daniel ingram](https://github.com/AtsushiSakai/PythonRobotics/tree/master/AerialNavigation/drone_3d_trajectory_following)
+-   [x] Tested matlab 3d animation in google collab from [stackoverflow sample code](https://stackoverflow.com/questions/61103994/embedding-matplotlib-animations-in-python-google-colab-notebook)
+
+### Plans
+
+-   [ ] Preliminary Python Robot Simulations
+    -   [ ] Quadrotor
+    -   [ ] Quadruped - adapt from [Adham Elarabawy](https://github.com/mithi/open-quadruped) and [Maurice Rahme](https://moribots.github.io/project/spot-mini-mini)
+    -   [ ] Inverse Kinematics and forward kinematics of an arm with a spherical joint, adapt from the implementations [here](https://meuse.co.jp/?p=2732) or [here](https://github.com/AliShug/EvoArm) or [here](http://www.alistairwick.com/posts/ik-for-dummies/) or [here](https://github.com/mithi/robotics-coursework/issues/13#issuecomment-727264904)
+-   [ ] Write what I've learned from the papers and sample code I've read this week
+-   [ ] Submit pull request to [AtsushiSakai/PythonRobotics](https://github.com/AtsushiSakai/PythonRobotics)
