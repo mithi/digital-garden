@@ -93,7 +93,7 @@ const Layout = ({ children }) => {
 
 export const FlowerPot = ({ fontSize = "3rem", margin = "10px" } = {}) => (
     <button style={{ fontSize, margin }}>
-        <Link href="/notes">
+        <Link href="/all">
             <a>
                 <GiFlowerPot />
             </a>
