@@ -6,11 +6,18 @@
 */
 
 const getAllNotesData = () => {
-    const allNotes = require.context("../pages/notes/", true, /\.mdx$/)
-    return allNotes.keys().map(fileName => ({
-        id: fileName.substr(1).replace(/\/index\.mdx$/, ""),
-        meta: allNotes(fileName).meta,
-    }))
+    const allPages = require.context("../pages/", true, /\.mdx$/)
+    // return only .mdx files on "./pages" that exports meta data
+    return allPages
+        .keys()
+        .map(fileName => {
+            const id = fileName.substr(1).replace(/\/index\.mdx$/, "")
+            return {
+                id,
+                meta: allPages(fileName).meta,
+            }
+        })
+        .filter(data => data.meta)
 }
 
 const getAllTags = () => {

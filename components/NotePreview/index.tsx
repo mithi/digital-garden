@@ -2,7 +2,7 @@ import Link from "next/link"
 import styles from "./NotePreview.module.css"
 
 const NoteTitle = ({ id, title }) => (
-    <Link href={`/notes${id}`}>
+    <Link href={id}>
         <a>
             <h2 className={styles.title}>{title}</h2>
         </a>
