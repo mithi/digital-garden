@@ -8,7 +8,7 @@
 }
 
 .main {
-    padding: 5rem 0;
+    padding: 1rem 0 3rem;
     flex: 1;
     width: 850px;
     display: flex;
@@ -36,6 +36,11 @@
     padding: 10px;
 }
 
+.menu {
+    display: grid;
+    grid-template-columns: repeat(4, 150px);
+}
+
 .button {
     font-size: 1.5rem;
     color: var(--c0-primary);
@@ -58,5 +63,15 @@
 
     .button {
         font-size: 1.5rem;
+    }
+
+    .menu {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu {
+        grid-template-columns: 1fr 1fr;
     }
 }
