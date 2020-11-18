@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import Head from "next/head"
 import Link from "next/link"
 import { ThemeContext } from "../Theme/index"
@@ -9,16 +9,7 @@ import { ImPriceTags } from "react-icons/im"
 import { BiCoffeeTogo } from "react-icons/bi"
 import { BsMoon } from "react-icons/bs"
 import { HiSun } from "react-icons/hi"
-import { GiFlowerPot } from "react-icons/gi"
-
-const Nav = () => {
-    return (
-        <>
-            <LinkInside path="/" render="🌷" />
-            <ThemeButton light="🌼" dark="🌙" />
-        </>
-    )
-}
+import { GiFlowerPot, GiHamburgerMenu } from "react-icons/gi"
 
 const LinkAway = ({ render, url }) => (
     <button className={styles.button}>
@@ -67,7 +58,7 @@ const FooterNav = () => (
 )
 const Layout = ({ children }) => {
     const { bgColor, textColor } = useContext(ThemeContext)
-
+    const [showMenu, setShowMenu] = useState(false)
     return (
         <div
             className={styles.container}
@@ -79,10 +70,15 @@ const Layout = ({ children }) => {
             </Head>
 
             <header className={styles.header}>
-                <Nav />
+                <button className={styles.button} onClick={() => setShowMenu(!showMenu)}>
+                    <GiHamburgerMenu />
+                </button>
+                <ThemeButton />
             </header>
 
-            <main className={styles.main}>{children}</main>
+            <main className={styles.main}>
+                {showMenu ? "this is the menu" : children}
+            </main>
 
             <footer className={styles.footer}>
                 <FooterNav />
