@@ -1,10 +1,11 @@
 import Note from "./../../../components/Note"
 import Link from "next/link"
-import { OverflowDiv } from "./Demonstration"
+import { OverflowDiv, PositionExample, FloatExample } from "./Demonstration2"
 
 export const meta = {
-    title: "Interactive CSS examples, etcetera, etcetera",
-    description: "Interactive CSS examples",
+    title: "css overflows, positions, floats",
+    description:
+        "Messy CSS demonstration and notes about of css overflows, positions, floats",
     tags: ["web-dev"],
 }
 
@@ -16,10 +17,126 @@ export default ({ children }) => <Note {...{ meta }}>{children}</Note>
 
 ```css
 /* type OverflowType = "visible" | "hidden" | "clip" | "scroll" | "auto" */
-
 div {
-    width: 400px;
-    height: 100px;
     overflow: auto;
 }
 ```
+
+## Float
+
+### None
+
+<FloatExample float="none" />
+
+### Left
+
+<FloatExample float="left" />
+
+### Right
+
+<FloatExample float="right" />
+
+## Position
+
+### static (default)
+
+<PositionExample position="static" />
+
+> Element is positioned according to the normal flow of the document.
+> Top, right, bottom, left, and z-index properties have no effect.
+
+### relative
+
+<PositionExample position="relative" top="30px" left="50px" />
+
+> The element is positioned according to the normal flow of the document THEN offset relative to itself
+> The offset does not affect the position of any other elements
+> the space given for the element in the page layout is the same as if position were static.
+
+```css
+div {
+    position: relative;
+    top: 30px;
+    left: 50px;
+}
+```
+
+### absolute
+
+> The element is removed from the normal document flow, and no space is created for the element in the page layout.
+
+In this case, the parent is positioned the the coordinates are set relative to the body.
+
+<PositionExample
+    position="absolute"
+    containerPosition="relative"
+    top="40px"
+    left="60px"
+/>
+
+```css
+.parent {
+    position: relative;
+}
+
+.child {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+}
+```
+
+> IMPORTANT: Please make sure the coordinates are set, or there will be some unwanted unintended behavior like this:
+> (scroll the example below)
+
+<PositionExample position="absolute" containerPosition="static" />
+
+```css
+.parent {
+    position: relative;
+}
+
+.child {
+    position: absolute;
+}
+```
+
+> It is positioned relative to its closest positioned ancestor
+> If unable to find a positioned parent, it positions itself relative to the body
+
+(no demo)
+
+See also:
+
+-   [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
+-   [Marina Ferreira: How to understand CSS Position Absolute once and for all](https://www.freecodecamp.org/news/how-to-understand-css-position-absolute-once-and-for-all-b71ca10cd3fd/)
+
+### sticky
+
+> The element is positioned according to the normal flow of the document,
+> and then offset relative to its nearest scrolling ancestor and containing block
+> (nearest block-level ancestor), including table-related elements.
+> The offset does not affect the position of any other elements
+
+<PositionExample position="sticky" top="0px" />
+
+```css
+.child {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+}
+```
+
+> First it is relative for a while, then it is fixed for a while, finally, it disappears from the view
+
+For a detailed discussion of various cases: see also [stackoverflow: How does the “position: sticky;” property work?](https://stackoverflow.com/questions/43707076/how-does-the-position-sticky-property-work)
+
+### fixed
+
+> The element is removed from the normal document flow, and no space is created for the element in the page layout
+> It is positioned relative to the initial containing block established by the viewport, except when one of its ancestors
+> has a transform, perspective, or filter property set to something other than none,
+> in which case that ancestor behaves as the containing block
+
+(no demo)
