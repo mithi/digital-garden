@@ -1,0 +1,25 @@
+import Note from "./../../../components/Note"
+import Link from "next/link"
+import { OverflowDiv } from "./Demonstration"
+
+export const meta = {
+    title: "Interactive CSS examples, etcetera, etcetera",
+    description: "Interactive CSS examples",
+    tags: ["web-dev"],
+}
+
+export default ({ children }) => <Note {...{ meta }}>{children}</Note>
+
+## Overflow
+
+<OverflowDiv />
+
+```css
+/* type OverflowType = "visible" | "hidden" | "clip" | "scroll" | "auto" */
+
+div {
+    width: 400px;
+    height: 100px;
+    overflow: auto;
+}
+```
