@@ -2,12 +2,17 @@ import css from "styled-jsx/css"
 
 type OverflowType = "visible" | "hidden" | "clip" | "scroll" | "auto"
 
-const overflowDivSyle = (overflow: OverflowType) =>
+const overflowDivSyle = (
+    overflow: OverflowType,
+    height: Number = 100,
+    width: Number = 300
+) =>
     css.resolve`
         div {
             border: 5px dashed var(--c0-primary);
-            width: 400px;
-            height: 100px;
+            border-radius: 20px;
+            width: ${width}px;
+            height: ${height}px;
             color: black;
             background-color: var(--dark);
             color: var(--c0-primary);
