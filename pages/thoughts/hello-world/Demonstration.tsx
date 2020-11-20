@@ -1,4 +1,4 @@
-import { useState, useContext } from "react"
+import { useContext } from "react"
 import { ThemeContext } from "../../../components/Theme/index"
 import styles from "./Note.module.css"
 
