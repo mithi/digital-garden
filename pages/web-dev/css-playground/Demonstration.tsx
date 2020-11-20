@@ -15,16 +15,18 @@ const overflowDivSyle = (overflow: OverflowType) =>
         }
     `
 
-export const OverflowDiv = () => {
+const SampleParagraph = () => (
+    <p>
+        This div will overflow. You can use the overflow property when you want to have
+        better control of the layout. \ The overflow property specifies what happens if
+        content overflows an element's b ox.
+    </p>
+)
+export const OverflowDiv = ({ children = <SampleParagraph /> }) => {
     const { className, styles } = overflowDivSyle("auto")
     return (
         <div className={className}>
-            <p>
-                This div will overflow. You can use the overflow property when you want to
-                have better control of the layout. \ The overflow property specifies what
-                happens if content overflows an element's box.
-            </p>
-            {styles}
+            {children} {styles}
         </div>
     )
 }
