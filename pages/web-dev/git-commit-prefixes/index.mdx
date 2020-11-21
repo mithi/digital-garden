@@ -1,0 +1,75 @@
+import Note from "./../../../components/Note"
+import Link from "next/link"
+
+export const meta = {
+    title: "Git commit prefixes",
+    description:
+        "My personal commit style guide. Put emojis on your commit based on category",
+    tags: ["web-dev"],
+}
+
+export default ({ children }) => <Note {...{ meta }}>{children}</Note>
+
+## (New feature)
+
+```py
+
+📝⭐ New Blog Post / Page!, or update text content of page
+💕⭐⭐ Major feature
+💕⭐ Minor Feature
+🌷⭐ Stylistic change (css)
+
+❗❗(api-breaking / change-behavior)
+
+-   Rename public functions
+-   Change parameters of class constructors, methods functions
+-   Change return type of existing functions
+-   Change functionality of existing function
+-   Remove existing properties of objects
+
+```
+
+## (No functionality change)
+
+```py
+
+🎨⭐⭐ (Major Refactor)
+🎨⭐ (Minor Refactor)
+
+-   Rename private variables, private functions and methods
+-   Move functions to own module
+-   Rearrange relative positions of functions or blocks of code within the same file
+-   Extract method move some code from a large function to a helper function
+-   Reduce cognitive complexity of blocks of codes
+-   Reimplement the same thing, but function is now is more readable (not necessarily faster)
+-   Remove duplication, be DRY
+
+🔥 Remove unused code
+
+💅🏼 (style/formatting)
+
+-   Improve formatting (run prettier, Add line spaces)
+-   Adding comments for readability
+
+🏇 (Optimize)
+
+-   Remove redundancy or unnecessary calculations
+-   Apply modifications that improve speed of the app
+
+```
+
+## (No production code change)
+
+```py
+
+🧹 (chore)
+
+-   Update package manager configs
+    📚 (doc)
+-   Update documentation
+    ✅ (test)
+-   Tests, refactored tests
+    🐞🐛 (fix)
+-   Fix something that is not working as expected
+
+```
