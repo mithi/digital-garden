@@ -1,0 +1,127 @@
+import Note from "./../../../components/Note"
+import Link from "next/link"
+export const meta = {
+    title: "Quadrotors Wishlist: Crazyflie, Eachine Tyro79, Adafruit Etc",
+    description: "custom quadrotor parts and stuff",
+    tags: ["robotics", "checklist", "links", "quadrotors"],
+}
+
+export default ({ children }) => <Note {...{ meta }}>{children}</Note>
+
+Things I have discovered
+
+## Crazyflie
+
+-   It's an awesome opensource quadrotor used in a lot in research by [Bit Craze](https://www.bitcraze.io/about/bitcraze/).
+-   I watched the talk of Kimberly Mcguire who works for the company to understand more about it, she did
+    a really good job explaning the pid controller, the kalman filter state estimator, and the flow deck while showcasing some of the features
+    and capabilities of the platform. Go check it out on youtube. I'll be bookmarking her talk as reference.
+-   You can buy a craziflie for $225 dollars. It comes with everything you need to get started. Including a battery
+    and Crazyradio PA, which enabled connection to a computer and advanced features like real-time logging and setting of parameter.
+-   You can add a Multi-ranger deck for 80 dollars and flow deck for 45 dollars. When bundled with the getting started kit it's only 330 usd as of writing.
+-   The [multiranger deck](https://store.bitcraze.io/products/multi-ranger-deck) adds 5 laser distance sensors (top, left, right, front back) for obstacle detection. 5x [VL53L1x Time-of-Flight](https://www.st.com/en/imaging-and-photonics-solutions/vl53l1x.html) sensors to measure distance up to 4 meters within a few millimeters (depending on surface and light conditions)
+-   The [flow deck](https://store.bitcraze.io/products/flow-deck-v2) gives the Crazyflie 2.X the ability to detect its motions in any direction. The VL53L1x ToF sensor measures the distance to the ground with high precision and the PMW3901 optical flow sensor measures movements of the ground. PMW3901 optical flow sensor.
+-   You can actually use the flow deck / breakout board and optical sensor with an Arduino as they made an open source [library for it](https://github.com/bitcraze/Bitcraze_PMW3901). [Tutorial](https://www.bitcraze.io/documentation/tutorials/getting-started-flow-breakout/)
+-   What I don't like about crazyflie is that it is not arduino compatibly, the firmware is written in C and even though it is open source, it is very hard for a beginner to just modify the firmware.
+-   They have a python client which you can use to talk to the crazieflie, but as I've read in the forums, it says "if you want to control the pwm directly, the latency is too high and the bandwidth too low to achieve good control results if the controller is running off board"
+
+More specs:
+
+-   6mm DC coreless motor
+-   45 mm propellers
+-   Size (WxHxD): 92x92x29mm (motor-to-motor and including motor mount feet)
+-   Takeoff weight: 27g
+-   1 x 250mAh LiPo battery
+
+## Eachine Tyro 79
+
+Let's compare crazieflie to one of the cheapest quadrotors near its size.
+Of course, you can't compare apples to oranges... EACHINE TYRO79
+
+-   [QuadifyRC: Eachine Tyro 79 Review](https://www.quadifyrc.com/reviews/eachine-tyro79-build-tips-setup-and-review)
+
+The Eachine has brushless motors with escs, has cameras (craziflie), has no batteries.. you can fly it on its own..
+
+-   Brushless motors
+-   140mm Racing Frame Kit
+-   3 inches (75.6 mm) propellers
+-   Recommended Batteries 4s 550mah - 750mah
+
+As you can see, Eachine tyro79 is about 1.5x as big.
+
+I like Eachine Tyro79's size more as I feel like the crazyflie is a bit too small especially if I want to add my own customizations.
+I also like that it uses I also like the upgrade modifications here:
+
+-   [QuadifyRC: Upgrade recommendations Eachine Tyro 79](https://www.quadifyrc.com/quad-mods/eachine-tyro79-ultimate-final-upgrade-guide)
+
+Recommendations
+
+-   better propellers: Gemfan Flash 3052 , Dalprop t3056c V, HQprop 3x4x3.
+-   better motors: HGLRC FLame 1407 3600kv, RCInpower 1506, BrotherHobby Tornado 1407 3600kv (about 10-12 usd each)
+-   better esc: Diatone Mamba F405 ESC. (20 - 30 usd) - (20x20mm DIATONE MAMBA F30MINI HV 30A 2-5S Blheli_S 4 In 1 Brushless ESC Dshot600 for RC FPV Racing Drone)
+
+## My own custom research drone, arduino and adafruit ???
+
+If I were to design my own research drone I would say I'd like to combine some of things I like from both.
+
+I'd borrow some from the Tyro79 given its size
+
+-   3 inch propellers, 650mah 4s batteries, brushless motors actuated by 4 in 1 esc
+
+From the crazyflie, I'm more inspired by its sensors, firmware, and algorithms
+
+-   Six VL53L1x TimeOfFlight sensors (top, bottom, left, right, front, back) or similar
+-   PMW3901 optical flow sensor
+
+If i were to make a research drone, the libraries and hardware must be backed by the
+open source community. They must be fairly popular and affordable. If not, this project
+will just die in obscurity.
+
+### Microcontroller
+
+I decided that the best available microcontroller is
+
+-   [Adafruit Feather M0 WiFi - ATSAMD21 + ATWINC1500](https://www.adafruit.com/product/3010), about 35 dollars
+
+Because of the following reasons:
+
+-   It is open source, if something goes wrong, it is easier to fix the problem given the available public knowledge
+-   It is arduino compatible, the most popular open-source electronic prototyping platform, so a lot of people already know arduino so they'll be quicker to get a hang of this drown, and be confident in hacking it
+-   It is made by adafruit, the company that makes the best designed open source hardware for hobbyist with the most friendly documentation to boot!
+-   Since the chip si M0, which is so much more powerful than other popular microcontrollers such as 328p or 32u4. For other microcontrollers we have to be extremely efficient in managing our resources, but because this is somewhat beefy, i think there is more room to make the algorithms more reader friendly at the expense of efficiency
+-   WiFi-capable, we need to be able to communicate with our drone. There are many communication types to choose from like radio, but i think wifi is good especially if we want to make a web-based controller to control our drone, it would be the easiest. Also, i think the support for wifi by arduino is not going away any time soon
+
+### IMU sensors
+
+Inorder to estimate our current state (orientation, position, velocity, etc) we should use:
+
+-   [Adafruit 9-DOF Orientation IMU Fusion Breakout - BNO085 (BNO080) - STEMMA QT / Qwiic](https://www.adafruit.com/product/4754)
+
+> Here it is, the motion sensor you were looking for: the one that just gives you the directly usable information without requiring you to first consult with a PhD to learn the arcane arts of Sensor Fusion. The BNO085 takes the life's work of multiple people who have spent their entire career focused on how to get useful information from direct motion sensor measurements and then squeezes that information down into a 5.2x3.8mm box, along with the sensors to go along with it..
+
+I was also pondering of instead using : Adafruit LSM6DSOX + LIS3MDL FeatherWing - Precision 9-DoF IMU as an alternative.
+Because you can just snap it on top of the feather. But the sensor fusion will be done by your microcontroller as opposed to having a dedicated cheap to compute it.
+So I think BNO085 wins.
+
+## In total
+
+-   Lipo Battery Charger
+-   ~35 usd = Adafruit Feather M0 WiFi - ATSAMD21 + ATWINC1500
+-   ~20 usd = Adafruit 9-DOF Orientation IMU Fusion Breakout - BNO085 (BNO080) - STEMMA QT / Qwiic
+-   ~20 usd = [4s 650mAh LiPo battery / CNHL MiniStar 650mAh 14.8V 4S 70C Lipo Battery XT30U Plug for 3 Inch FPV RC Drone](https://www.banggood.com/CNHL-MiniStar-650mAh-14_8V-4S-70C-Lipo-Battery-XT30U-Plug-for-3-Inch-FPV-RC-Drone-p-1366602.html?p=O407199341113201703R)
+-   ~5usd = Gemfan 3inch propellers, 2 Pairs Gemfan Flash 3052 PC 3-blade Propeller 5mm Mounting Hole for GEPRC CineGo 1306-1806 Motor RC FPV Racing Drone
+-   ~80 usd = Eachine Tyro79:
+    -   frame, propellers
+    -   brushless motors (Eachine Tyro79 3 Inch DIY Version FPV Racing RC Drone Spare Part 1607 2800KV 2-4S Brushless Motor - Counter-clockwise Screw Thread)
+    -   4in1 esc(Eachine Tyro79 Spare Part 20x20mm 20A BLHeli_S 2-4S 4in1 Brushless ESC for RC Drone FPV Racing)
+
+### Upgrades to Tyro79 parts
+
+-   ~50 usd = 4 brushless motors (as recommended), HGLRC FLame 1407 3600kv., RCInpower 1506.BrotherHobby Tornado 1407 3600kv.
+-   ~25 usd = 4 in 1 esc ESC-MAMBA F30MINI 2-5S 4 IN 1 BLHELI_S DSHOT600 ELECTRONIC SPEED CONTROLLER
+
+### Sensor add ons etc
+
+-   ~80 usd (crazyflie multi-ranger deck) 5x VL53L1x ToF
+-   ~50 usd (crazyflie optical flow + tos dec) 1x VL53L1x ToF + PMW3901
+-   ~5 usd rainbow leds NeoPixel Ring - 16 x 5050 RGBW LEDs w/ Integrated Drivers - Cool White - ~6000K
