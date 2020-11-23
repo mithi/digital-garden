@@ -1,0 +1,132 @@
+import Note from "./../../../components/Note"
+import Link from "next/link"
+export const meta = {
+    title: "Designing an opensource arduino-based quadrotor",
+    description:
+        "Messy research about components for a custom quadrotor for autonomous flight",
+    tags: ["robotics", "quadrotors", "project", "links", "checklist"],
+}
+
+export default ({ children }) => <Note {...{ meta }}>{children}</Note>
+
+## Bangood Eachine Eachine tyro79s - Seems like the best budget beginner Drone (180 dollars)
+
+[Eachine Tyro79S 140mm F4 OSD 20A ESC 3 Inch FPV Racing Drone RTF w/ 200mW VTX Frsky XM+ Receiver & LiteRadio 2.4G Radio Transmitter Mode 2 for Novice Newer Beginner - RTF 2x Battery Version](https://www.eachine.com/Eachine-Tyro79S-140mm-F4-OSD-20A-ESC-3-Inch-FPV-Racing-Drone-RTF-w-or-200mW-VTX-Frsky-XM+-Receiver-and-LiteRadio-2_4G-Radio-Transmitter-Mode-2-for-Novice-Newer-Beginner-RTF-2x-Battery-Version-p-2033.html)
+
+Ready to fly, An RTF model is a pre-built model that's sold with everything you will need in order to fly right out of the box.
+But it is also hobby grade... has replaceable and upgradeable parts that is compatible with widely available popular brands.
+The size is good (3 inch propeller), it is large enough such that has more room for additional electronics,
+but also small enough to be flown indoors. It is also not very expensive relatively.
+
+### Notable parts
+
+-   140mm (motor to motor)
+-   3 inch propellers
+-   2x 3s lipo and battery charger
+-   F4 OSD Flight Controller - Supports Betaflight/cleanflight/inav firmware
+-   Frsky XM+ Receiver, Firmware Upgradeable Compatibility: FrSky D16 mode
+-   LiteRadio Radio Transmitter, Frsky Protocol (D16/D8)
+-   20A BLheli_S 4In1 Brushless ESC - Firmware upgrade: Supports Dshot600/BLHeli_S/Oneshot125
+
+### More detailed reasons I like this RTF Done
+
+#### [How to choose ESC (oscarliang)](https://oscarliang.com/choose-esc-racing-drones/#4in1-esc)
+
+The 4in1 esc is good because:
+
+> The most popular firmware which runs on 99% of all FPV quad ESCs are either BLHeli_S or BLHeli32.
+> BLHeli32 is newer of the two, and uses a faster processor. Flight performance wise, there is very little difference, but BLHeli32 is more future proof.
+> The main ESC protocol used today are DShot, more specifically, DShot300 and DShot600, with the number indicating the speed of the protocol.
+
+#### [How to choose a radio transmitter (Oscar Liang)](https://oscarliang.com/radio-transmitter/), [CONNECT ANY TRANSMITTER TO FPV SIMULATORS VIA FLIGHT CONTROLLER (Oscar Liang)](https://oscarliang.com/betaflight-fc-fpv-simulator/)
+
+The receiver transmitter (and the flight controller that is f4 with betaflight) is good because:
+
+The transmitter is almost identical to [BETAFPV LITERADIO 2 (oscar liang review)](https://oscarliang.com/betafpv-literadio-2/)
+which mean you can use it with [QUADCOPTER FPV SIMULATORS | RACING DRONE TRAINER (oscar liang)](https://oscarliang.com/free-quadcopter-simulator-drone-multirotor-trainer/)
+
+> You can use any radio transmitter (TX) to play FPV simulators wirelessly thanks to the latest feature in Betaflight 3.4. All you need is a flight controller and a receiver.
+> You Need an F4 or F7 FC and Radio Receiver, You can also just use your drone for this. Flash the latest Betaflight to your flight controller (3.4 or newer)
+
+## Why use Adafruit Feather M0 WiFi - ATSAMD21 + ATWINC1500 ?
+
+-   [Adafruit Wifi Feather](https://learn.adafruit.com/adafruit-feather/wifi-feathers)
+
+### Why wifi? pros and cons. why not bluetooth or radio?
+
+#### Radio is good but:
+
+> Neither RFM69 nor LoRa are standardized, or built into laptops, so you need at least two of the radios to connect to a computer
+> The trade-off is that you'll have to do a bit more work in the software to manage your packets, and re-transmission.
+
+#### Pros and cons of wifi
+
+-   Compared to just about any other wireless protocol, WiFi is strongly supported by every computer/tablet/phone, has strong encryption built-in, and can reach anywhere around the world!
+-   WiFi can transfer a lot more data a lot faster!
+-   WiFi uses a ton of power, you can easily end up using 250mA during transmit and receive/listening. Try to use low power modes to reduce that if possible
+-   may have connectivity problems, just like you do when your laptop has poor reception
+
+### Pros and cons of this adafruit feather
+
+-   this has really powerful and well-documented main processor that runs separately from WiFi which can give you more control
+-   Main chip is ATSAMD21G18, which has solid official Arduino support
+-   Proper sleep modes, can shut down WiFi module completely
+-   ATWINC1500 has some low-power mode support
+-   Main processor is well-known and documented Cortex M0+ chip.
+-   WINC1500 has official support from Atmel/Microchip.
+-   Firmware on the wifi module is opaque, no way to really debug or analyze beyond the firmware provided
+-   Not as popular as ESP8266 so fewer projects published
+
+## We need to write our own dshot600 library for the arduino zero (adafruit m0)
+
+Inorder for the chosen microcontroller with the esc we've chosen, we need to use the dshot600
+protocol, and I havent seen a ready made opensource library to do this.
+
+Here are some references we can use to do this.
+
+-   [David Such Reefwing Robotics](https://reefwingrobotics.blogspot.com/2020/05/arduino-esc-tester-adding-dshot.html), Generating DShot on an Arduino UNO a fairly detailed discussion
+-   [Arduino Stack Exchange: Dshot implementation on Arduino (ESC protocol)](https://arduino.stackexchange.com/questions/43851/dshot-implementation-on-arduino-esc-protocol)
+-   [DShot implementation for Arduino using bit-banging method](https://github.com/gueei/DShot-Arduino)
+-   [DSHOT – The new kid on the block, 2016-11-06 by Jay Technical details](https://blck.mn/2016/11/dshot-the-new-kid-on-the-block/)
+
+> DSHOT is the name coined for a new digital ESC protocol by Felix (KISS) who is working in collaboration with Boris and the rest of the betaflight team, and Steffen (BLHeli) is also playing his part and introducing this protocol to BLHeli_S.
+
+### What is bit banging ? How to use arduino timers and interrupts???
+
+> Bit banging is using the normal digital outputs and setting them to high and low in a pattern and with timing to emulate some protocol or other that is normally done by a hardware sequence generator
+
+-   [Calvin A. Cherry: I2C Bit-Banging Tutorial: Part I](https://calcium3000.wordpress.com/2016/08/19/i2c-bit-banging-tutorial-part-i/)
+-   [Bit Banging Data with the Arduino](http://hifiengineering.blogspot.com/2013/07/bit-banging-serial-data-with-arduino.html)
+-   [Circuit digest: Introduction to Bit Banging: SPI communication via Bit Banging](https://circuitdigest.com/article/introduction-to-bit-banging-spi-communication-in-arduino-via-bit-banging)
+-   [Nebs Petrovic, Smoothly Changing a Timer’s Frequency on the Arduino Zero](https://medium.com/@nebsp/smoothly-changing-a-timers-frequency-on-the-arduino-zero-1f6cd285369a) - Setup a basic timer using the Arduino Zero., Use a potentiometer to control the frequency of that timer.
+-   [Instructables Arduino Timer Interrupts, By amandaghassaei ](https://www.instructables.com/Arduino-Timer-Interrupts/)
+-   [How to write Timers and Delays in Arduino by Matthew Ford](https://www.forward.com.au/pfod/ArduinoProgramming/TimingDelaysInArduino.html)
+
+## Crazyflie
+
+### Multirange sensors
+
+> The multi-ranger deck gives Crazyflie 2.0 the ability to sense the distance to objects around it with mm precision, up to 4 meters away. It contains 5 VL53L1X ranging sensors facing the front, left, back, right and up. When used together with the Flow deck the Crazyflie 2.0 can autonomously move around and avoid obstacles
+
+[Schematics and other specifications open sourced here](https://wiki.bitcraze.io/projects:crazyflie2:expansionboards:multiranger)
+
+### Flowdeck
+
+The Flow deck gives the Crazyflie 2.0 the ability to understand when it's moving in any direction. The VL53L1x ToF sensor measures the distance to the ground with high precision and the PMW3901 optical flow sensor measures movements of the ground.
+
+[Schematics and other specifications open sourced here](https://wiki.bitcraze.io/projects:crazyflie2:expansionboards:flow-v2)
+
+> The flow breakout board contains a VL53L0x ranging sensor as well as a PMW3901 optical flow sensor. It is the breakout version of the Crazyflie 2.0 Flow deck.
+
+[Schematics and other specifications open sourced here](https://wiki.bitcraze.io/breakout:flow)
+
+## All parts to buy
+
+-   🌟 35 usd - [Adafruit Feather M0 WiFi - ATSAMD21 + ATWINC1500](https://www.adafruit.com/product/3010)
+-   🌟 20 usd - [ADAFRUIT 9-DOF ORIENTATION IMU FUSION BREAKOUT - BNO085 (BNO080)](https://www.adafruit.com/product/4754)
+-   🌟 179 usd - [Eachine Tyro79S 140mm F4 OSD 20A ESC 3 Inch FPV Racing Drone RTF w/ 200mW VTX Frsky XM+ Receiver & LiteRadio 2.4G Radio Transmitter Mode 2 for Novice Newer Beginner - RTF 2x Battery Version](https://www.eachine.com/Eachine-Tyro79S-140mm-F4-OSD-20A-ESC-3-Inch-FPV-Racing-Drone-RTF-w-or-200mW-VTX-Frsky-XM+-Receiver-and-LiteRadio-2_4G-Radio-Transmitter-Mode-2-for-Novice-Newer-Beginner-RTF-2x-Battery-Version-p-2033.html)]()
+-   🌟 20 usd or cheaper alternative -[NeoPixel Ring - 24 x 5050 RGB LED with Integrated Drivers, Outer diameter: 65.5mm / 2.6", Inner diameter: 52.3mm / 2.1"](https://www.adafruit.com/product/1586)
+-   80 usd or cheaper alternative -[Bitcraze Crazyflie Multi-ranger deck, 5 x VL53L1x (35x35x5mm)](https://store.bitcraze.io/collections/decks/products/multi-ranger-deck)
+-   45 usd or cheaper alternative - [Bitcraze Crazyflie Flow deck v2, VL53L1x ToF sensor, PMW3901 optical flow sensor, 21x28x4mm](https://store.bitcraze.io/collections/decks/products/flow-deck-v2)
+-   5 usd - Propeller alternative like Gemfan ?
+-   Peripherals like wires, solder, header and stuff.
