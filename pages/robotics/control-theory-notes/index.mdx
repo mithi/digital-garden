@@ -1,0 +1,259 @@
+import Note from "./../../../components/Note"
+import Link from "next/link"
+export const meta = {
+    title: "State-space controllers notes",
+    description:
+        "My notes about State-space controllers, model based control, fundamentals and linear quadratic regulators",
+    tags: ["robotics", "notes", "control-theory"],
+}
+
+export default ({ children }) => <Note {...{ meta }}>{children}</Note>
+
+## The feedback loop
+
+```py
+                e(t)              u(t)          y(t)
+r(t) -->( +/-) ------> controller ----> plant ------>
+            |                                  |
+             ----------< sensor <--------------
+
+
+t: time step
+r(t) : reference: the desired state
+e(t) : error: the difference between the desired state and actual state
+u(t) :
+    control input: what our controller want us to do to try to get the
+    desired state given the error
+
+y(t) :
+    output: the actual (or measured values from the world) as measured by the sensors
+    given how the system/environment/plant responded to our input to it
+
+```
+
+-   Note, the control input is usually fed to an actuator (for example we put voltage to the water heater (voltage is our control input) the heater which heats the water is our actuator) and this actuator plus the environment determines the output
+-   We can convert the measured values y(t) to
+    our actual_state by a function which is our based
+    on our model of the world
+-   for example we can convert our measured acceleration from accelerometer, and lidar/radar sensors to the next position in space
+-   the actual state is actually not the real state
+    since we can't really measure the actual state of the world
+    but only as measured by our sensor which could be noisy
+
+```py
+error = desired_state - measured_state
+control_output = plant_input  = controller_function(error)
+measured_state = plant_function(control_output)
+```
+
+## Definitions
+
+1. model based control method
+
+-   design an accurate model of a sytem then driving the states we care about to zero or to a reference.
+
+2. dynamical system
+
+-   A system whose motion varies according to a set of differential equations
+-   a system is linear if the model describing the dynamics consist of only linear operations (constant gain multiplication, derivative, integrals)
+
+3. state space
+
+-   the set of all possible states
+
+## State space notation
+
+```py
+x_dot = dx /dt
+
+x_dot = A*x + B*u
+y = C*x + D*u
+
+x(k + 1) = A*x(k) + B*u(k)
+next_state = some_value * previous_state + another_value * control
+
+y(k) = C*x(k) + D*u(k)
+plant_output = some_value * previous_state + another_value * control
+
+k = previous time step
+k + 1 = next time step
+
+A: system matrix
+B: input matrix
+C: output matrix
+D:  feedthrough matrix
+
+x_dot = change is state change in time
+x: state vector
+u: input vector
+y: output vector
+```
+
+## Eigenvalues and stability
+
+-   This is important but will write about it some other time
+-   The idea is that the eigenvalues of matrix A (system matrix) is important because its location when plotted in the complex plane determines the stability of the system
+-   This has something to do with the fact that with the idea of the laplace and fourier tansform, where all signals (value wrt time) can be modeled as a sum of of sine waves (where each sine wave has a particular frequency) .. so there is a relation between a signal with respect to time to that signal with respect its to frequency
+-   the system can be marginally stable, stable or unstable.
+-   it is marginally stable when the response of the system will be oscillating
+-   stable when it could eventually converges to a value
+-   unstable if it will converge to infinity with means it will continue to go larger and larger
+
+## Controllability
+
+-   controllability means that given any possible input we can steer any state to any desired state within a finite time window.
+-   there is a theorem that states that a state-space model is only controllable if and only if it satisfies the following
+
+```py
+
+rank([B | A * B | A^2*B |.... |A^(n-1) * B] = n
+
+recall that
+A is the system matrix
+B is the input matrix
+x is the
+x_dot(k + 1) = A*x(k) + B*u(k)
+
+n is the number of state variables (length of x
+which is the state vector)
+
+```
+
+-   rank is the number of dimensions
+    of the vector space spanned by its columns
+    to understand what rank is spatially
+    we should review 3blue1brown essence of linear algebra
+-   The point here is that we can measure
+-   the details are not important the point is we can compute if our model is controllable or not (that given our control inputs we are able
+    to reach any stable state that we want.
+-   There is also a controllability matrix which we can compute a value to gauge if the actuators are better (more controllable) , I won't worry about this for now.
+
+## Observability
+
+-   Observability is a measure for how well the internal states of a system can be inferred by its external outputs
+-   This means if our measured outputs can actually be converted to the states in which we represent
+-   Does our output values provide enough information to predict the state of out system
+-   -   for example can the measurements of the accelerometer and lidar be fused such that we will be able to accurately the correct position, velocity (internal state)
+-   There is also a theorem for this. But this is not important for now.
+
+## The control law
+
+```py
+u = K(r - x)
+u = K(e)
+
+K is the function that converts our error
+to a control input
+K = control function  / controller gain matrix
+
+u = control input vector
+r = reference (desired state)
+x = current state
+e = r - x (error)
+```
+
+-   example: quadcopter given our position, orientation, velocity and angular velocity (state) and our desired state, our control input
+-   is say the the voltage to actuate the motors which controls the
+-   angular velocity of the motors, we can measure the output with our sensor which are accelerometers, radar, lidar for example, k is the function which converts the error to our control input (voltage to send to the motors)
+
+```py
+given
+x_dot = A*x + B*u
+y = C*x + D*u
+u = K(r - x)
+K = control function  / controller gain matrix
+
+interesting:
+the eigen values of the matrix E = (A - BK)
+are the poles of the closed loop system
+and those poles determine the stability of the system
+
+A and B are inherent to the system
+(this means that this cannot be chosen arbitrarily,
+they depend on model of the system
+(dynamics)
+
+But K is what the controller designer chooses
+
+```
+
+The goal is to find `k` or controller gain matrix that
+will make the system behave the way we want
+(no error between our desired state and "actual" state.
+
+## Linear Quadratic Regulator
+
+The intuition
+We can demonstrate the basic idea behind the linear-quadratic regulator with the following flywheel model:
+
+```py
+x_dot = a * x + b * u
+x = angular_velocity
+a = negative constant representing the back emf of the motor
+b = is a positive constant that maps the input voltage to
+some change in angular velocity
+u = voltage applied to the motor
+x_dot = angular acceleration
+```
+
+when we apply a voltage we can see the motor spin up
+to some constant speed following an exponential decay then stay
+at the speed. Based on the control low `u = k(r-x)` we can make the system converge to our desired state `r` though a constant `k`.
+Can we pick this `k` to getting the target angular velocity
+quickly with getting there efficiently (minimal oscillations or excessive voltage?)
+We can solve this problem using a linear quadratic regulator.
+
+```py
+this is our model:
+x_dot = ax * bu
+u = k(r-x)
+
+we have a cost function J
+
+J = integral from 0 to infinity of function
+(Q * (r-x) *(r-x) + R * u * u)
+
+where Q > 0 and R > 0
+```
+
+-   `Q` and `R` lets us decide for much error and
+    input and contribute to the cost.
+
+-   If `Q` is larger than `R` then we are penalizing
+    having more error than being efficient (having a large control value) which will make the controller more aggressive.
+-   If R is big then the controller will be less agressive.
+-   We want to pick the controller gain `K` that minimized this cost `J`
+-   A common trick is to take the derivative of the cost function wrt to input u then set the derivative to zero then solve for u. When the slope is zero the function is at a minimum or maximum. All the terms are positive, so our cost is positive so the quadratic function is concave up. therefor `u` we found is minimum
+-   The actual process of solving for `u` is mathematically intensive but there are many algorithms for that
+-   -   `J` is a tradeoff between state-tracking `(error)` and control effort `u`. The control effort cannot be obtained without sacrificing state tracking performance.
+-   In mathematical terms
+
+```py
+
+minimize function
+integral from time zero to infinity
+of the function x_transpose * Qmatrix * x + u_transpose * Rmatrix * u
+
+where the constraint is x_dot = A * x + B * u
+
+if the system is controllable (we can reach any desired state given posible control inputs)
+the optimal policy u_star that drives the state to zero is
+-K * x
+
+because:
+
+u = K *(r - x)
+
+so  r = is the desired state to be zero
+so
+
+u_star = K * ( 0 - x) = k * x
+
+```
+
+So the point here is we should pick a `k` that would minimize `j`
+we select `Rmatrix` and `Qmatrix`. The larger the magnitudes of `Rmatrix` matrix the more we care about minimizing the error, the larger the `Qmatrix` is the more we care about the control input being small (being less aggressive)
+
+## Closing
+
+Of course there are many other things about state space controllers but this is all for now.
