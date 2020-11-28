@@ -1,0 +1,48 @@
+import Note from "./../../../components/Note"
+import Link from "next/link"
+export const meta = {
+    title: "Underactuated Control Preliminary notes",
+    description:
+        "Some of terminologies I've learned, resources and sample code",
+    tags: ["robotics", "notes", "control-theory"],
+}
+
+export default ({ children }) => <Note {...{ meta }}>{children}</Note>
+
+
+# Simulations
+
+1. Free Simple pendulum 
+2. Acrobot robot (free + control)
+3. Inverted pendulum on a cart
+4. Double pendulum on a cart
+5. A 2d quadrotor, LQR
+6. Simple trajectory planning of a 2d quadrotor
+ 
+# Control Concepts
+
+- [x] lyapunov stability theory
+- [x] Phase portraits
+- [x] Two lectures on Underactuated Robotics Youtube channel
+- [x] Learned about 4th order - 4th order runge kutta
+- [x] Equations of motion for
+		- [x] Acrobots
+		- [x] Simple Pendulum
+		- [x]  Double Pendulum
+		- [x]  Quadrotor2d
+		- [x]  Inverted Cartpole
+		- [x]  Inverted Double Pendulum on a cart
+- [x] Linear Quadratic Regulators
+- [x] Combining linear quadratic regulator and swing up control
+- [x] The langrangian method, use euler-lagrange equation to get the equations of motions
+- [x] Runge Kutta 4th order method -finds approximate value of y for a given x for first order ordinary differential equations
+- [x] [Robotics preliminaries](http://underactuated.csail.mit.edu/multibody.html#section1) - Deriving the equations of motions and the manipulator equation form of the simple pendulum
+- [x] [Chapter 4 Murray, Robot Dynamics and Control](https://www.cds.caltech.edu/~murray/books/MLS/pdf/mls94-manipdyn_v1_2.pdf) - Equations of motion for an open-chain manipulator
+- [x] Please check openai gym classic implementations of control, there is also a simple implementation of 4th order Runge Kutta there.
+
+
+# Sample code
+- [(github/zjor)](https://github.com/zjor/inverted-pendulum/blob/master/python/free-double-pendulum.py) - Example of a free double pendulum code implementation in python using scipy.integrate.ode
+- [(github/YifanJiangPolyU)](https://github.com/YifanJiangPolyU/cart-pole-nonlinear-control/blob/master/cart-pole-balancing.py) + [this one includes swingup](https://github.com/YifanJiangPolyU/cart-pole-nonlinear-control/blob/master/cart-pole-swing-up.py) - Example of cart pole with inverted balancing with LQR and scipy.integrate.ode
+- [(github/ditya-shirwatkar](https://github.com/aditya-shirwatkar/UnderactuatedRobotics) + [Custom environments](https://github.com/aditya-shirwatkar/UnderactuatedRobotics/tree/master/custom-environments/gym_custom_envs/envs) - examples of quardrotor2d, inverted cartpole and cartpole control)
+- [Google collab double pendulum matplotlib](https://colab.research.google.com/drive/1AVt7y1T2xdXDh9s0yNdIayw1tn6vmiEY#scrollTo=P-JxIDVnRDHi)
