@@ -1,9 +1,11 @@
 # One hardware project a year
 
-1. Hexapod robot - Control an actual hexapod via a web application 2020
+1. Hexapod robot - Control an actual hexapod via a web application - 2020
 2. A basic robot arm workshop - 2021
 3. Acrobatic Quadrotor project - 2022
 4. 3d printer - 2023
+    - print mechanisms
+    - Lego to dc motor, servo, and stepper motor adapter
 
 ## The basic robot arm workshop
 
