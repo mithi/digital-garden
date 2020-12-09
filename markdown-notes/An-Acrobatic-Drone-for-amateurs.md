@@ -13,6 +13,7 @@ My vision is to build an accessible indoor quadrotor that could perform these am
 - Readily-available hobby grade parts
 - Arduino-based, it has a wonderful community of makers already familiar with it 
 - Extensible - Small enough to be flown indoors, but large enough to add additional sensors and other components
+- Can communicate with the drone via wi-fi
 
 ## Base Hardware
 - Eachine Tyro79s Ready To Fly Drone
