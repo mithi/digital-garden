@@ -31,6 +31,7 @@ My vision is to build an accessible indoor quadrotor that could perform these am
 ## Readings
 - https://github.com/hbd730/quadcopter-simulation 
 - https://github.com/AtsushiSakai/PythonRobotics/tree/master/AerialNavigation/drone_3d_trajectory_following
+- https://github.com/nikhilkalige/quadrotor/
 - https://github.com/prgumd/prg_QuadrotorPapers
 - http://www.matthewpeterkelly.com/tutorials/trajectoryOptimization/index.html
 - http://underactuated.csail.mit.edu/acrobot.html#section3
